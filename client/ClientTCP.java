@@ -40,10 +40,8 @@ public class ClientTCP extends AbstractClient {
             initialOperations(in, out);
 
             while (true) {
-                String request = createRequestFromUserInput(inputReader);
+                String request = createRequestFromUserInput(inputReader, logger);
                 if(request.length()==0) continue;
-
-                System.out.println("********************* request : "+request+" ********************");
 
                 sendRequestAndReceiveResponse(out, in, request);
 

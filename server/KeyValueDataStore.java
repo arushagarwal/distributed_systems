@@ -3,56 +3,54 @@ package server;
 import java.util.*;
 
 /**
- * This class represents the actual key value data store with all the associated operations that
- * can be performed on it.
+ * This class is a wrapper for the hashmap which will behave as a key value data store and provides functionality to
+ * intreact with the data store.
  */
-class KeyValueStore {
+class KeyValueDataStore {
   private final HashMap<String, String> store;
 
   /**
-   * Initializes the key value data store.
+   * Initializing the key value data store.
    */
-  public KeyValueStore() {
+  public KeyValueDataStore() {
     this.store = new HashMap<>();
   }
 
-  /**
-   * Inserts a given key and assigns it a given value in the data store.
-   *
-   * @param key The key to be stored.
-   * @param value The associated value to be stored.
-   */
+    /**
+     * Inserts data in the data store with the provided values.
+     * @param key key of the pair
+     * @param value value of the pair
+     */
   public synchronized void put(String key, String value) {
     store.put(key, value);
   }
 
-  /**
-   * Gets the value for a given key from the data store.
-   * @param key the key whose value is to be fetched.
-   * @return A message containing the corresponding value stored against the key in the data store.
-   */
+    /**
+     * Returns corresponding value of the asked key from the data store.
+     * @param key asked key for which value is returned.
+     * @return value for the asked key, NULL if value not present.
+     */
   public synchronized String get(String key) {
     return store.get(key);
   }
 
-  /**
-   * Deletes the given key and its corresponding value from the data store.
-   * @param key the key to be deleted.
-   * @return A message indicating whether the operation is successful or not.
-   */
+    /**
+     * Deletes the key value pair from the data store.
+     * @param key key for the deleting pair
+     * @return previous value for the deleted key, value pair
+     */
   public synchronized String delete(String key) {
     return store.remove(key);
   }
 
-  /**
-   * Gets the size of the data store
-   * @return A message containing size of the data store.
-   */
+    /**
+     * Returns number of key, value pairs in the data store.
+     * @return number of key, value pairs
+     */
   public synchronized int size() { return store.size();}
 
   /**
-   * Deletes all the data of the data store
-   * @return Nothing.
+   * Deletes all the data of the data store.
    */
 
   public synchronized void deleteAll() { store.clear();}

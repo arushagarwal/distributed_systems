@@ -4,8 +4,6 @@ import java.net.*;
 import java.io.*;
 import java.util.UUID;
 import java.util.zip.Adler32;
-import java.util.zip.CRC32;
-import java.util.zip.Checksum;
 import java.util.logging.Logger;
 
 /**
@@ -15,25 +13,28 @@ import java.util.logging.Logger;
 public class ClientUDP extends AbstractClient {
 
   private Logger logger;
+  static private int TIMEOUT_MS = 5000;
   public ClientUDP(Logger logger){
     this.logger=logger;
   }
   @Override
   public void startClient(String serverIp, int portNum) {
     try (DatagramSocket aSocket = new DatagramSocket();
-      BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in))) {
+      BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in))) {
       InetAddress aHost = InetAddress.getByName(serverIp);
-      populateKeyValues(aSocket, aHost, portNum);
-      while (true) {
-        String request = createRequestFromUserInput(userInput);
-        if(request.isEmpty()) {
-          continue;
-        }
-        sendRequest(aSocket, request, aHost, portNum);
 
-        System.out.print("Do you want to perform another operation? (yes/no): ");
-        String anotherOperation = userInput.readLine().toLowerCase();
-        if (!anotherOperation.equals("yes")) {
+      initialOperations(aSocket, aHost, portNum);
+
+      while (true) {
+        String request = createRequestFromUserInput(inputReader, logger);
+        if(request.length()==0) continue;
+
+
+        sendRequestAndReceiveResponse(aSocket, request, aHost, portNum);
+
+        System.out.print("Another Operation ?? (Y/N): ");
+        String nextOperation = inputReader.readLine();
+        if (nextOperation.equals("n") || nextOperation.equals("N")) {
           break;
         }
       }
@@ -48,11 +49,6 @@ public class ClientUDP extends AbstractClient {
     }
   }
 
-  private String generateUUID() {
-    UUID uuid = UUID.randomUUID();
-    return uuid.toString();
-  }
-
   private long generateChecksum(String requestString) {
     byte [] m = requestString.getBytes();
     Adler32 adler32 = new Adler32();
@@ -60,16 +56,15 @@ public class ClientUDP extends AbstractClient {
     return adler32.getValue();
   }
 
-  private void sendRequest(DatagramSocket aSocket, String requestString, InetAddress aHost,
+  private void sendRequestAndReceiveResponse(DatagramSocket aSocket, String requestString, InetAddress aHost,
       int serverPort) throws IOException {
 
-    // Parse request information from the request string.
-    String[] requestToken = requestString.split("::");
-    String action = requestToken[1];
 
     // creating datagram packet
-    long requestId = generateChecksum(requestString);
-    requestString = requestId + "::" + requestString;
+    long checksumId = generateChecksum(requestString);
+    requestString = checksumId + ":" + requestString;
+
+    String requestId = requestString.split("\\|")[0];
 
     byte[] m = requestString.getBytes();
     DatagramPacket request = new DatagramPacket(m, m.length, aHost, serverPort);
@@ -78,7 +73,7 @@ public class ClientUDP extends AbstractClient {
     aSocket.send(request);
 
     // setting timeout of 5 seconds for udp request and waiting for response from server
-    aSocket.setSoTimeout(5000);
+    aSocket.setSoTimeout(TIMEOUT_MS);
 
     int max_size = aSocket.getReceiveBufferSize();
 
@@ -86,54 +81,63 @@ public class ClientUDP extends AbstractClient {
     DatagramPacket reply = new DatagramPacket(buffer, buffer.length);
 
     try {
-      // receive response
+      // receiving response from server
       aSocket.receive(reply);
       String response = new String(reply.getData(), 0, reply.getLength());
-      String[] responseToken = response.split(":");
-      long responseRequestId = Long.parseLong(responseToken[0]);
+
 
       // validating malformed responses from server
-      if(responseRequestId != requestId) {
-        logger.info("Received Malformed response for request: " + requestId +
-          " ; Received response for " + responseToken[0]);
+      if(response.contains(requestId)==false) {
+        logger.warning("Received Malformed response for request: " + requestId);
       } else {
         if(response.contains("?")) response=response.replace("?","\n");
         logger.info("Received response " + response);
-        System.out.println(action+" Reply: " + response);
       }
     } catch(SocketTimeoutException e) {
-      System.out.println("Request timed out.. received no response from server for request: "
-        + requestId);
-      logger.info("Request timed out.. received no response from server for request: "
-          + requestId);
+      logger.warning("Request timed out... no response received from server for request: " + requestId);
     }
   }
 
-  private void populateKeyValues(DatagramSocket aSocket, InetAddress aHost, int serverPort)
+  private void initialOperations(DatagramSocket aSocket, InetAddress aHost, int serverPort)
     throws IOException {
-    final int NUM_KEYS = 500;
-    //Pre-populating key value store
-    // Send PUT requests
-    for (int i = 1; i <= NUM_KEYS * 2; i++) {
-      String putString = generateUUID() + "::PUT::key" + i + "::value" + i;
-      sendRequest(aSocket, putString, aHost, serverPort);
+    final int KEYS = 1000;
+
+    String requestId;
+    // initial 1000 put requests to populate key-value data store
+    for (int i = 1; i <= KEYS; i++) {
+      requestId = UUID.randomUUID().toString();
+      String putString = requestId + "|PUT|key" + i + "|value" + (2*i);
+      logger.info("Sending request to server : PUT -> key " + i + " with value " + (2*i));
+      sendRequestAndReceiveResponse(aSocket, putString, aHost, serverPort);
     }
 
-    //GET ALL request
-    String requestId = UUID.randomUUID().toString();
-    String getAllString = requestId + "::" + "GETALL";
-    sendRequest(aSocket, getAllString, aHost, serverPort);
+    //get all request
+    requestId = UUID.randomUUID().toString();
+    String getAllString = requestId + "|" + "GETALL";
+    logger.info("Sending request to server : GET ALL");
+    sendRequestAndReceiveResponse(aSocket, getAllString, aHost, serverPort);
 
-    // Send GET requests
-    for (int i = 1; i <= NUM_KEYS * 2; i++) {
-      String getString = generateUUID() + "::GET::key" + i;
-      sendRequest(aSocket, getString, aHost, serverPort);
+    //get request for all the keys in the data store
+    for (int i = 1; i <= KEYS; i++) {
+      requestId = UUID.randomUUID().toString();
+      String getString = requestId + "|GET|key" + i;
+      logger.info("Sending request to server : GET -> key " + i);
+      sendRequestAndReceiveResponse(aSocket, getString, aHost, serverPort);
     }
 
-    //DELETE requests
+    //delete request for some keys in data store
     for (int i = 1; i <= 5; i++) {
-      String getString = generateUUID() + "::DELETE::key" + i;
-      sendRequest(aSocket, getString, aHost, serverPort);
+      requestId = UUID.randomUUID().toString();
+      String getString = requestId + "|DELETE|key" + i;
+
+      logger.info("Sending request to server : DELETE -> key " + i);
+      sendRequestAndReceiveResponse(aSocket, getString, aHost, serverPort);
     }
+
+    // size request to get the size of the data store
+    requestId = UUID.randomUUID().toString();
+    String sizeString = requestId + "|SIZE";
+    logger.info("Sending request to server : SIZE ");
+    sendRequestAndReceiveResponse(aSocket, sizeString, aHost, serverPort);
   }
 }

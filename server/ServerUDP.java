@@ -2,6 +2,7 @@ package server;
 import java.net.*;
 import java.io.*;
 import java.util.Arrays;
+import java.util.zip.Adler32;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
 import java.util.logging.Logger;
@@ -33,7 +34,7 @@ public class ServerUDP extends AbstractServer {
           buffer.length);
         aSocket.receive(request);
 
-        // Validating requests on server side.
+        // Checking the request packet on server and validating packet.
         if (!validRequest(request)) {
           String response = "Couldn't process request.";
           logger.warning(" - Received Malformed request from " + request.getAddress() + " of length " + request.getLength());
@@ -43,7 +44,7 @@ public class ServerUDP extends AbstractServer {
           continue;
         }
 
-        // parsing and processing request
+        // processing request
         String msg = new String(request.getData(), 0, request.getLength());
         logger.info(" - Request from : " + request.getAddress() + ": "+msg);
 
@@ -64,7 +65,7 @@ public class ServerUDP extends AbstractServer {
                 DatagramPacket reply = new DatagramPacket(response.getBytes(),
                         response.getBytes().length, request.getAddress(), request.getPort());
                 aSocket.send(reply);
-                logger.info(" - Response to : " + reply.getAddress() + ": " + response);
+                logger.info(" Response to : " + reply.getAddress() + ": " + response);
                 maxDataInPacket = new StringBuilder();
               }
           }
@@ -74,14 +75,14 @@ public class ServerUDP extends AbstractServer {
           DatagramPacket reply = new DatagramPacket(response.getBytes(),
                   response.getBytes().length, request.getAddress(), request.getPort());
           aSocket.send(reply);
-          logger.info(" - Response to : " + reply.getAddress() + ": " + response);
+          logger.info(" Response to : " + reply.getAddress() + ": " + response);
         }
         // rest all other requests
         else{
           DatagramPacket reply = new DatagramPacket(response.getBytes(),
                   response.getBytes().length, request.getAddress(), request.getPort());
           aSocket.send(reply);
-          logger.info(" - Response to : " + reply.getAddress() + ": " + response);
+          logger.info(" Response to : " + reply.getAddress() + ": " + response);
         }
       }
     } catch (SocketException e) {
@@ -91,26 +92,29 @@ public class ServerUDP extends AbstractServer {
     }
   }
 
-  private static long generateChecksum(String[] requestParts) {
-    String result = String.join("::", Arrays.copyOfRange(requestParts, 1, requestParts.length));
-
-    byte [] m = result.getBytes();
-    Checksum crc32 = new CRC32();
-    crc32.update(m, 0, m.length);
-    return crc32.getValue();
+  /**
+   * To generate checksum for the given string.
+   * @param requestString String for which checksum needs to be generated.
+   * @return checksum value in long format.
+   */
+  private long generateChecksum(String requestString) {
+    byte [] m = requestString.getBytes();
+    Adler32 adler32 = new Adler32();
+    adler32.update(m, 0, m.length);
+    return adler32.getValue();
   }
 
   /**
-   * This function validates a given datagram packet, if it is as per protocol and is not corrupted.
+   * Validating given datagram packet received from client.
    * @param request Datagram request.
    * @return boolean indicating request is valid or not.
    */
   private boolean validRequest(DatagramPacket request) {
 
     String requestData = new String(request.getData(), 0, request.getLength());
-    String[] parts = requestData.split("::");
+    String[] parts = requestData.split("\\|");
 
-    if (parts.length < 3) {
+    if (parts.length < 2) {
       return false;
     }
 
@@ -118,10 +122,14 @@ public class ServerUDP extends AbstractServer {
       return false;
     }
 
-    long responseRequestId = Long.parseLong(parts[0]);
+    String checkSumId = parts[0].split(":")[0];
+
+    long responseRequestId = Long.parseLong(checkSumId);
+
+    String requestStringWithoutCheckSum = requestData.substring(checkSumId.length()+1);
 
     // compare checksums, if not equal means malformed request.
-    return responseRequestId == generateChecksum(parts);
+    return responseRequestId == generateChecksum(requestStringWithoutCheckSum);
   }
   
 }
