@@ -9,36 +9,34 @@ import java.net.Socket;
 import java.util.logging.Logger;
 
 /**
- * This represents a TCP based server which listens at a given port number for TCP client requests.
+ * TCP server is a class which will behave as a server listening at given port number for the client requests.
  */
-public class TCPServer extends AbstractServer {
+public class ServerTCP extends AbstractServer {
 
     private Logger logger;
-    public TCPServer(Logger logger){
+    public ServerTCP(Logger logger){
         this.logger=logger;
     }
     @Override
-    public void listen(int portNumber) {
+    public void startAndListen(int portNumber) {
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
 
-            System.out.println("Server is listening on port " + portNumber);
-            logger.info("Server is listening on port " + portNumber);
+            System.out.println("Server listening on port number" + portNumber);
+            logger.info("Server listening on port number" + portNumber);
 
             while (true) {
-                // Start listening to client requests and creating client socket
+
                 Socket clientSocket = serverSocket.accept();
-                System.out.println("client.Client connected: " + clientSocket.getInetAddress());
-                logger.info(" - Request from : " + clientSocket.getInetAddress() + ": Client connected");
+                System.out.println("client connected at address : " + clientSocket.getInetAddress());
+                logger.info("Request from : " + clientSocket.getInetAddress() + ": Client connected");
 
                 try {
-                    handleRequest(clientSocket);
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    handleClientRequest(clientSocket);
                 } finally {
                     // log information when client closes connection
                     clientSocket.close();
-                    System.out.println("client.Client disconnected");
-                    logger.info("Client disconnected: " + clientSocket.getInetAddress());
+                    System.out.println("Client disconnected");
+                    logger.info("Client disconnected from IP address : " + clientSocket.getInetAddress());
                 }
             }
         } catch (IOException e) {
@@ -46,28 +44,30 @@ public class TCPServer extends AbstractServer {
         }
     }
 
-    @Override
-    public void handleRequest(Socket clientSocket) throws IOException {
+
+    private void handleClientRequest(Socket clientSocket){
         try (
           BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
           PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)
         ) {
-            String inputLine;
+            String inputLine = null;
             while ((inputLine = in.readLine()) != null) {
                 System.out.println("Received from client: " + inputLine);
-                // log client request information
+                // logging the request received from client
                 logger.info(" - Request from : " + clientSocket.getInetAddress() + ": "+inputLine);
 
-                // get information from the key value store
-                String response = processRequest(inputLine);
+                // processing client request and getting response
+                String response = processClientRequest(inputLine);
 
-                // write back the response to the client
+                // sending response to client
                 out.println(response);
 
-                // log the response information
+                //for the get all requests
                 if(response.contains("?")){
                     response = response.replace("?","\n");
                 }
+
+                // logging the response info
                 logger.info(" - Response to : " + clientSocket.getInetAddress() + ": " + response);
             }
         } catch (IOException e) {

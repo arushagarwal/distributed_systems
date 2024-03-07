@@ -7,8 +7,8 @@ import java.util.logging.SimpleFormatter;
 /**
  * This class starts a UDP server by creating an instance of a UDP server.
  */
-public class ServerAppUDP {
-    private static final Logger logger = Logger.getLogger(ServerAppUDP.class.getName());
+public class UDPServerMain {
+    private static final Logger logger = Logger.getLogger(UDPServerMain.class.getName());
     public static void main(String[] args) {
       if (args.length != 1) {
         System.out.println("Usage: java Server <udp-port>");
@@ -21,8 +21,8 @@ public class ServerAppUDP {
             fileHandler.setFormatter(new SimpleFormatter());
             logger.addHandler(fileHandler);
 
-            IServer server = new UDPServer(logger);
-            server.listen(udpPortNumber);
+            AbstractServer server = new ServerUDP(logger);
+            server.startAndListen(udpPortNumber);
         }
         catch (Exception e){
 

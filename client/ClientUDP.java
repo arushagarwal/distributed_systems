@@ -3,6 +3,7 @@ package client;
 import java.net.*;
 import java.io.*;
 import java.util.UUID;
+import java.util.zip.Adler32;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
 import java.util.logging.Logger;
@@ -11,10 +12,10 @@ import java.util.logging.Logger;
  * This represents the UDP client which communicates to the UDP server over a given port and host
  * address.
  */
-public class UDPClient extends AbstractClient {
+public class ClientUDP extends AbstractClient {
 
   private Logger logger;
-  public UDPClient(Logger logger){
+  public ClientUDP(Logger logger){
     this.logger=logger;
   }
   @Override
@@ -24,7 +25,7 @@ public class UDPClient extends AbstractClient {
       InetAddress aHost = InetAddress.getByName(serverIp);
       populateKeyValues(aSocket, aHost, portNum);
       while (true) {
-        String request = generateRequestFromUserChoice(userInput);
+        String request = createRequestFromUserInput(userInput);
         if(request.isEmpty()) {
           continue;
         }
@@ -54,9 +55,9 @@ public class UDPClient extends AbstractClient {
 
   private long generateChecksum(String requestString) {
     byte [] m = requestString.getBytes();
-    Checksum crc32 = new CRC32();
-    crc32.update(m, 0, m.length);
-    return crc32.getValue();
+    Adler32 adler32 = new Adler32();
+    adler32.update(m, 0, m.length);
+    return adler32.getValue();
   }
 
   private void sendRequest(DatagramSocket aSocket, String requestString, InetAddress aHost,

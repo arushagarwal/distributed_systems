@@ -4,86 +4,75 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.UUID;
 
+/**
+ * This is a common class for TCP and UDP clients with common functionality to create request from the given user input.
+ */
 public abstract class AbstractClient{
-  public String generateRequestFromUserChoice(BufferedReader userInput) throws IOException {
+
+  /**
+   * This function creates request to be sent to server based on the input from the user.
+   * @param userInput Input provided by the user to create request.
+   * @return request string to be sent to server for processing.
+   * @throws IOException IOException while reading user input from bufferedReader
+   */
+  public String createRequestFromUserInput(BufferedReader userInput) throws IOException {
     System.out.println("Which operation do you want to use?");
+    System.out.println("(Database is pre-populated with keys from 16-1000)");
     System.out.println("1. PUT");
     System.out.println("2. GET");
     System.out.println("3. DELETE");
     System.out.println("4. SIZE OF DATA");
     System.out.println("5. DELETE ALL DATA");
     System.out.println("6. GET ALL DATA");
-    System.out.print("Enter your choice (1/2/3/4/5/6): ");
+    System.out.println("7. EXIT");
+    System.out.print("Enter your choice (1-6): ");
 
-    String choice = userInput.readLine();
+    String input = userInput.readLine();
+
+    String requestId = UUID.randomUUID().toString();
 
     String request = "";
-    switch (choice) {
+    switch (input) {
       case "1":
-        request = generatePutRequest(userInput);
+        System.out.print("enter the key to put: ");
+        String key = userInput.readLine();
+        System.out.print("enter the value for the key: ");
+        String value = userInput.readLine();
+        request = requestId + "|" + "PUT|key"  + key + "|value" + value;;
         break;
       case "2":
-        request = generateGetRequest(userInput);
+        System.out.print("enter the key: ");
+        key = userInput.readLine();
+        request = requestId + "|" + "GET|key" + key;
         break;
       case "3":
-        request = generateDeleteRequest(userInput);
+        System.out.print("enter the key to delete: ");
+        key = userInput.readLine();
+        request = requestId + "|" + "DELETE|key" + key;
         break;
       case "4":
-        request = generateSizeRequest();
+        request = requestId + "|" + "SIZE";
         break;
       case "5":
-        request = generateDeleteAllRequest();
+        request = requestId + "|" + "DELETEALL";
         break;
       case "6":
-        request = generateGetAllRequest();
+        request = requestId + "|" + "GETALL";
         break;
+      case "7":
+        System.out.println("bye bye");
+        System.exit(0);
       default:
-        System.out.println("Invalid choice. Please enter 1, 2, or 3.");
+        System.out.println("Invalid choice. Please enter 1, 2, 3, 4, 5 or 6.");
     }
     return request;
   }
 
-  private String generateGetRequest(BufferedReader userInput) throws IOException {
-    System.out.print("Please enter the key (integer): ");
-    String key = userInput.readLine();
-    String requestId = UUID.randomUUID().toString();
-    return requestId + "::" + "GET" + "::" + key;
-  }
-
-  private String generatePutRequest(BufferedReader userInput) throws IOException {
-    System.out.print("Please enter the key: ");
-    String key = userInput.readLine();
-    System.out.print("Please enter the value for the key: ");
-    String value = userInput.readLine();
-    String requestId = UUID.randomUUID().toString();
-    return requestId + "::" + "PUT" + "::" + key + "::" + value;
-  }
-
-  private String generateDeleteRequest(BufferedReader userInput) throws IOException {
-    System.out.print("Please enter the key (integer): ");
-    String key = userInput.readLine();
-    String requestId = UUID.randomUUID().toString();
-    return requestId + "::" + "DELETE" + "::" + key;
-  }
-  private String generateSizeRequest(){
-    String requestId = UUID.randomUUID().toString();
-    return requestId + "::" + "SIZE";
-  }
-
-  private String generateDeleteAllRequest(){
-    String requestId = UUID.randomUUID().toString();
-    return requestId + "::" + "DELETEALL";
-  }
-
-  private String generateGetAllRequest(){
-    String requestId = UUID.randomUUID().toString();
-    return requestId + "::" + "GETALL";
-  }
-
   /**
-   * Starts client process to send request to server on given port and IP address
-   * @param serverIp server's IP address to send request.
-   * @param portNum server's port number on which it listens to client requests.
+   * This function is to begin client to send requests and receive responses from server at given IP address and port
+   * number
+   * @param serverIp server's IP address
+   * @param portNum server's port number
    */
   abstract void startClient(String serverIp, int portNum);
 }

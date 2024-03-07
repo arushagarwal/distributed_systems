@@ -1,54 +1,60 @@
 package server;
 
-import java.io.IOException;
-import java.net.Socket;
-
 /**
- * Abstract class that implements common functionalities like processing key value store read/write
- * for any type of server.
+ * Abstract class which is a common class for TCP and UDP server which contains common functionalities like to
+ * process request from client and also provide definition of function to listen to client requests
  */
-public abstract class AbstractServer implements IServer {
+public abstract class AbstractServer{
   private static final KeyValueStore keyValueStore = new KeyValueStore();
 
-  public String processRequest(String inputLine) {
-    String[] tokens = inputLine.split("::");
-    System.out.println(inputLine);
-    if (tokens.length < 3) {
+  /**
+   * Processes the input request parsed from handleRequest method.
+   * @param inputLine input request as parsed from handleRequest.
+   */
+  public String processClientRequest(String inputLine) {
+    String[] requestComponents = inputLine.split("\\|");
+    System.out.println("request : "+inputLine);
+    if (requestComponents.length < 2) {
       return "Invalid request format";
     }
 
-    String requestId = tokens[0];
-    String operation = tokens[2];
-    String key = tokens.length==3?null:tokens[3];
-    String value = tokens.length > 4 ? tokens[4] : null;
+    String requestId = requestComponents[0];
+    String action = requestComponents[1].toUpperCase();
+    String key = requestComponents.length == 2 ? null : requestComponents[2];
+    String value = requestComponents.length <= 3 ? null : requestComponents[3];
 
-    switch (operation.toUpperCase()) {
+    switch (action) {
       case "PUT":
-        if (value == null) {
-          return requestId + ": PUT operation requires a value";
+        if (key==null || value == null) {
+          return requestId + ": Invalid PUT request";
         }
         keyValueStore.put(key, value);
-        return requestId + ": Key '" + key + "' stored with value '" + value + "'";
+        return requestId + ": Key : " + key + ",Value : " + value + " successfully added to database";
       case "GET":
-        String storedValue = keyValueStore.get(key);
-        return (storedValue != null) ? (requestId + ": Value for key '" + key + "': " + storedValue)
-            : (requestId + ": Key '" + key + "' not found");
+        String getValue = keyValueStore.get(key);
+        if(getValue==null) return requestId+" : Value not found for key : "+key;
+        else return requestId + ": Value for the key : "+key+" : "+getValue;
       case "DELETE":
-        String removedValue = keyValueStore.delete(key);
-        return (removedValue != null) ? (requestId + ": Deleted key '" + key + "' with value '" + removedValue + "'")
-            : requestId + ": Key '" + key + "' not found";
+        String deletedValue = keyValueStore.delete(key);
+        if(deletedValue == null) return requestId+": Value not found for key : "+key;
+        else return requestId+" : Value deleted successfully for key : "+key+" with previous value : "+deletedValue;
       case "SIZE":
           int size = keyValueStore.size();
-          return requestId + ": Size of data store : "+size;
+          return requestId + ": Size of database : "+size;
       case "DELETEALL":
           keyValueStore.deleteAll();
           boolean val = keyValueStore.size()==0;
-          return requestId + ": Data DeleteAll " + (val?"Successful":"Unsuccessful");
+          return requestId + ": Data Delete All " + (val?"Successful":"Unsuccessful");
       case "GETALL":
           String pairs = keyValueStore.getAll();
           return requestId + ":" +pairs;
       default:
-        return requestId + ": Unsupported operation: " + operation;
+        return requestId + ": "+action+" operation not supported by the server ";
     }
   }
+
+  /**
+   * This function starts server and listens for requests from clients.
+   */
+  abstract void startAndListen(int portNumber);
 }

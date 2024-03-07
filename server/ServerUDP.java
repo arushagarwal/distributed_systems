@@ -11,14 +11,14 @@ import java.util.logging.Logger;
  * to the client. This class extends the abstract server class which has the common implementation
  * to handle key value requests.
  */
-public class UDPServer extends AbstractServer {
+public class ServerUDP extends AbstractServer {
 
   private Logger logger;
-  public UDPServer(Logger logger){
+  public ServerUDP(Logger logger){
     this.logger=logger;
   }
   @Override
-  public void listen(int portNumber) {
+  public void startAndListen(int portNumber) {
 
     // Server socket creation on specified port number.
     try (DatagramSocket aSocket = new DatagramSocket(portNumber)) {
@@ -48,7 +48,7 @@ public class UDPServer extends AbstractServer {
         logger.info(" - Request from : " + request.getAddress() + ": "+msg);
 
         // process request from the key value store
-        String response = processRequest(msg);
+        String response = processClientRequest(msg);
 
         // sending response back to client
 
@@ -123,9 +123,5 @@ public class UDPServer extends AbstractServer {
     // compare checksums, if not equal means malformed request.
     return responseRequestId == generateChecksum(parts);
   }
-
-    @Override
-  public void handleRequest(Socket clientSocket) throws IOException {
-    logger.warning("Unable to process request. Server handle request behavior undefined");
-  }
+  
 }
