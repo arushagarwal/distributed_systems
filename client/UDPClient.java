@@ -72,7 +72,10 @@ public class UDPClient extends AbstractClient {
 
     // setting timeout of 5 seconds for udp request and waiting for response from server
     aSocket.setSoTimeout(5000);
-    byte[] buffer = new byte[1000];
+
+    int max_size = aSocket.getReceiveBufferSize();
+
+    byte[] buffer = new byte[max_size];
     DatagramPacket reply = new DatagramPacket(buffer, buffer.length);
 
     try {
@@ -87,8 +90,9 @@ public class UDPClient extends AbstractClient {
         ClientLogger.log("Received Malformed response for request: " + requestId +
           " ; Received response for " + responseToken[0]);
       } else {
+        if(response.contains("?")) response=response.replace("?","\n");
         ClientLogger.log("Received response " + response);
-        System.out.println(action+" Reply: " + new String(reply.getData(), 0, reply.getLength()));
+        System.out.println(action+" Reply: " + response);
       }
     } catch(SocketTimeoutException e) {
       System.out.println("Request timed out.. received no response from server for request: "
@@ -100,13 +104,18 @@ public class UDPClient extends AbstractClient {
 
   private static void populateKeyValues(DatagramSocket aSocket, InetAddress aHost, int serverPort)
     throws IOException {
-    final int NUM_KEYS = 10;
+    final int NUM_KEYS = 500;
     //Pre-populating key value store
     // Send PUT requests
     for (int i = 1; i <= NUM_KEYS * 2; i++) {
       String putString = generateUUID() + "::PUT::key" + i + "::value" + i;
       sendRequest(aSocket, putString, aHost, serverPort);
     }
+
+    //GET ALL request
+    String requestId = UUID.randomUUID().toString();
+    String getAllString = requestId + "::" + "GETALL";
+    sendRequest(aSocket, getAllString, aHost, serverPort);
 
     // Send GET requests
     for (int i = 1; i <= NUM_KEYS * 2; i++) {
@@ -115,7 +124,7 @@ public class UDPClient extends AbstractClient {
     }
 
     //DELETE requests
-    for (int i = 5; i <= NUM_KEYS*2; i++) {
+    for (int i = 1; i <= 5; i++) {
       String getString = generateUUID() + "::DELETE::key" + i;
       sendRequest(aSocket, getString, aHost, serverPort);
     }

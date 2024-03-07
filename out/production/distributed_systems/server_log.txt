@@ -1,0 +1,434 @@
+2024-03-06 14:59:09.103 - Server is listening on port 20
+2024-03-06 14:59:12.070 - Request from : /127.0.0.1: Client connected
+2024-03-06 14:59:12.123 - Request from : /127.0.0.1: 1876357653::fafc9344-7e6d-4c03-8e16-1b6780287b23::PUT::key1::value10
+2024-03-06 14:59:12.130 - Response to : /127.0.0.1: 1876357653: Key 'key1' stored with value 'value10'
+2024-03-06 14:59:12.131 - Request from : /127.0.0.1: 4063628108::89bdde9c-414b-4430-99b3-f2fbc3ab1465::PUT::key2::value20
+2024-03-06 14:59:12.132 - Response to : /127.0.0.1: 4063628108: Key 'key2' stored with value 'value20'
+2024-03-06 14:59:12.132 - Request from : /127.0.0.1: 3518081555::4117df75-cc3d-4458-8035-5e53f067be87::PUT::key3::value30
+2024-03-06 14:59:12.132 - Response to : /127.0.0.1: 3518081555: Key 'key3' stored with value 'value30'
+2024-03-06 14:59:12.132 - Request from : /127.0.0.1: 3907160336::05583a6b-493c-4fbc-a659-2355c72e53a1::PUT::key4::value40
+2024-03-06 14:59:12.133 - Response to : /127.0.0.1: 3907160336: Key 'key4' stored with value 'value40'
+2024-03-06 14:59:12.133 - Request from : /127.0.0.1: 414194841::db8cb24b-c981-4bcd-83c9-cf3b42d75cf6::PUT::key5::value50
+2024-03-06 14:59:12.133 - Response to : /127.0.0.1: 414194841: Key 'key5' stored with value 'value50'
+2024-03-06 14:59:12.133 - Request from : /127.0.0.1: 1943090126::30d1a70e-6daf-4fe2-ad31-aa7d38a13aa7::PUT::key6::value60
+2024-03-06 14:59:12.133 - Response to : /127.0.0.1: 1943090126: Key 'key6' stored with value 'value60'
+2024-03-06 14:59:12.134 - Request from : /127.0.0.1: 2980042282::0cd54621-826b-44c4-ac9e-2b1d212ba90b::PUT::key7::value70
+2024-03-06 14:59:12.134 - Response to : /127.0.0.1: 2980042282: Key 'key7' stored with value 'value70'
+2024-03-06 14:59:12.134 - Request from : /127.0.0.1: 1117899294::330adb2a-bf4b-4423-9a77-f3df83944ae9::PUT::key8::value80
+2024-03-06 14:59:12.134 - Response to : /127.0.0.1: 1117899294: Key 'key8' stored with value 'value80'
+2024-03-06 14:59:12.135 - Request from : /127.0.0.1: 2020256020::c555217f-a742-46e9-9ee4-311ff0a92855::PUT::key9::value90
+2024-03-06 14:59:12.135 - Response to : /127.0.0.1: 2020256020: Key 'key9' stored with value 'value90'
+2024-03-06 14:59:12.135 - Request from : /127.0.0.1: 1542186320::a763a726-0e37-4f2d-95da-83bd6755a482::PUT::key10::value100
+2024-03-06 14:59:12.135 - Response to : /127.0.0.1: 1542186320: Key 'key10' stored with value 'value100'
+2024-03-06 14:59:12.135 - Request from : /127.0.0.1: 4111366993::ee138bdc-0ed1-43b9-b0bf-03d4f04b20e6::PUT::key11::value110
+2024-03-06 14:59:12.136 - Response to : /127.0.0.1: 4111366993: Key 'key11' stored with value 'value110'
+2024-03-06 14:59:12.136 - Request from : /127.0.0.1: 1083370858::137c2e83-d899-48c0-90fe-b298f484f5a6::PUT::key12::value120
+2024-03-06 14:59:12.136 - Response to : /127.0.0.1: 1083370858: Key 'key12' stored with value 'value120'
+2024-03-06 14:59:12.136 - Request from : /127.0.0.1: 2130587153::3601574a-bddf-4c2b-86bc-3c5280d9f8db::PUT::key13::value130
+2024-03-06 14:59:12.136 - Response to : /127.0.0.1: 2130587153: Key 'key13' stored with value 'value130'
+2024-03-06 14:59:12.136 - Request from : /127.0.0.1: 3551878026::53ea689b-d6d0-41fa-ac21-6ca64c5e2682::PUT::key14::value140
+2024-03-06 14:59:12.137 - Response to : /127.0.0.1: 3551878026: Key 'key14' stored with value 'value140'
+2024-03-06 14:59:12.137 - Request from : /127.0.0.1: 4291217960::9b640373-04db-462f-9285-11078bd2951f::PUT::key15::value150
+2024-03-06 14:59:12.137 - Response to : /127.0.0.1: 4291217960: Key 'key15' stored with value 'value150'
+2024-03-06 14:59:12.137 - Request from : /127.0.0.1: 547469858::13d69ceb-dc27-4aed-a31a-7b04b8eeaf0b::PUT::key16::value160
+2024-03-06 14:59:12.137 - Response to : /127.0.0.1: 547469858: Key 'key16' stored with value 'value160'
+2024-03-06 14:59:12.138 - Request from : /127.0.0.1: 972224696::3fa73a6e-eedc-4660-99d3-264780eeb526::PUT::key17::value170
+2024-03-06 14:59:12.138 - Response to : /127.0.0.1: 972224696: Key 'key17' stored with value 'value170'
+2024-03-06 14:59:12.139 - Request from : /127.0.0.1: 763369512::8abf52c6-2c83-4d43-af69-13f155285759::PUT::key18::value180
+2024-03-06 14:59:12.139 - Response to : /127.0.0.1: 763369512: Key 'key18' stored with value 'value180'
+2024-03-06 14:59:12.139 - Request from : /127.0.0.1: 103958489::b4e4248b-d743-4dc0-9052-64ea52ff3b48::PUT::key19::value190
+2024-03-06 14:59:12.139 - Response to : /127.0.0.1: 103958489: Key 'key19' stored with value 'value190'
+2024-03-06 14:59:12.139 - Request from : /127.0.0.1: 4127684038::2960b077-781b-4e44-bd48-f6fa874e935e::PUT::key20::value200
+2024-03-06 14:59:12.140 - Response to : /127.0.0.1: 4127684038: Key 'key20' stored with value 'value200'
+2024-03-06 14:59:12.140 - Request from : /127.0.0.1: 2719552451::d07c6f14-d80a-4727-9e10-a3ff3497271c::GETALL
+2024-03-06 14:59:12.146 - Response to : /127.0.0.1: 2719552451:*********************
+GET ALL VALUES : key : key1, value : value10
+key : key2, value : value20
+key : key5, value : value50
+key : key6, value : value60
+key : key3, value : value30
+key : key4, value : value40
+key : key9, value : value90
+key : key7, value : value70
+key : key8, value : value80
+key : key11, value : value110
+key : key10, value : value100
+key : key20, value : value200
+key : key15, value : value150
+key : key14, value : value140
+key : key13, value : value130
+key : key12, value : value120
+key : key19, value : value190
+key : key18, value : value180
+key : key17, value : value170
+key : key16, value : value160
+***************************
+2024-03-06 14:59:12.147 - Request from : /127.0.0.1: 2523057541::cb6314af-cad9-47dd-a8a2-48f2904cf2bc::GET::key1
+2024-03-06 14:59:12.147 - Response to : /127.0.0.1: 2523057541: Value for key 'key1': value10
+2024-03-06 14:59:12.147 - Request from : /127.0.0.1: 332772762::0648a123-42d8-4117-95d2-aa075174d819::GET::key2
+2024-03-06 14:59:12.148 - Response to : /127.0.0.1: 332772762: Value for key 'key2': value20
+2024-03-06 14:59:12.148 - Request from : /127.0.0.1: 3106273650::144abc9e-9b99-4180-8f0b-a8d8d467b8a3::GET::key3
+2024-03-06 14:59:12.148 - Response to : /127.0.0.1: 3106273650: Value for key 'key3': value30
+2024-03-06 14:59:12.149 - Request from : /127.0.0.1: 1712285577::e9b5077f-cf15-463b-ad02-513898d693a7::GET::key4
+2024-03-06 14:59:12.149 - Response to : /127.0.0.1: 1712285577: Value for key 'key4': value40
+2024-03-06 14:59:12.150 - Request from : /127.0.0.1: 3182329339::ab07f2ce-4ba1-4332-9274-935224d853d7::GET::key5
+2024-03-06 14:59:12.150 - Response to : /127.0.0.1: 3182329339: Value for key 'key5': value50
+2024-03-06 14:59:12.150 - Request from : /127.0.0.1: 4209019242::e778398d-2e81-4e56-81ef-445ed18dee56::GET::key6
+2024-03-06 14:59:12.151 - Response to : /127.0.0.1: 4209019242: Value for key 'key6': value60
+2024-03-06 14:59:12.151 - Request from : /127.0.0.1: 1102243887::d5e25896-6546-4137-b3f1-bfdc519fae78::GET::key7
+2024-03-06 14:59:12.151 - Response to : /127.0.0.1: 1102243887: Value for key 'key7': value70
+2024-03-06 14:59:12.151 - Request from : /127.0.0.1: 3852270129::8832506d-58c8-4c5f-b9a0-edcfdeebc1a2::GET::key8
+2024-03-06 14:59:12.152 - Response to : /127.0.0.1: 3852270129: Value for key 'key8': value80
+2024-03-06 14:59:12.152 - Request from : /127.0.0.1: 2718675411::2f0ed6b6-f31f-49e3-bcb2-aa962911c12d::GET::key9
+2024-03-06 14:59:12.152 - Response to : /127.0.0.1: 2718675411: Value for key 'key9': value90
+2024-03-06 14:59:12.153 - Request from : /127.0.0.1: 1381457489::a9496cfa-e5d8-4831-8b1e-475a7605a33a::GET::key10
+2024-03-06 14:59:12.153 - Response to : /127.0.0.1: 1381457489: Value for key 'key10': value100
+2024-03-06 14:59:12.154 - Request from : /127.0.0.1: 3117905267::964d94d7-fe99-4563-a6d7-6d504754e267::GET::key11
+2024-03-06 14:59:12.154 - Response to : /127.0.0.1: 3117905267: Value for key 'key11': value110
+2024-03-06 14:59:12.154 - Request from : /127.0.0.1: 1279256531::32c54495-fab8-46be-80e1-72ab35160a51::GET::key12
+2024-03-06 14:59:12.154 - Response to : /127.0.0.1: 1279256531: Value for key 'key12': value120
+2024-03-06 14:59:12.155 - Request from : /127.0.0.1: 1711951191::006b26c9-ff6f-4bff-92f1-9d86abb0d8fc::GET::key13
+2024-03-06 14:59:12.155 - Response to : /127.0.0.1: 1711951191: Value for key 'key13': value130
+2024-03-06 14:59:12.155 - Request from : /127.0.0.1: 2819451162::3450f72d-97b7-421e-a3c1-32add474ea95::GET::key14
+2024-03-06 14:59:12.155 - Response to : /127.0.0.1: 2819451162: Value for key 'key14': value140
+2024-03-06 14:59:12.155 - Request from : /127.0.0.1: 1550949638::c0d9b063-3d37-4f67-8d2b-3ac3fb281750::GET::key15
+2024-03-06 14:59:12.155 - Response to : /127.0.0.1: 1550949638: Value for key 'key15': value150
+2024-03-06 14:59:12.155 - Request from : /127.0.0.1: 4250954001::b347a41a-6b3f-401d-ad1d-a0d91e74804c::GET::key16
+2024-03-06 14:59:12.156 - Response to : /127.0.0.1: 4250954001: Value for key 'key16': value160
+2024-03-06 14:59:12.156 - Request from : /127.0.0.1: 4049522080::fa30ca27-7ac7-4fd5-9252-1ff3fc20f762::GET::key17
+2024-03-06 14:59:12.156 - Response to : /127.0.0.1: 4049522080: Value for key 'key17': value170
+2024-03-06 14:59:12.156 - Request from : /127.0.0.1: 3133214178::3631967a-37c0-47a7-94e9-bcb06a846ae2::GET::key18
+2024-03-06 14:59:12.156 - Response to : /127.0.0.1: 3133214178: Value for key 'key18': value180
+2024-03-06 14:59:12.156 - Request from : /127.0.0.1: 614136451::53e1642b-3e34-46da-bb4c-ac901f2baf3e::GET::key19
+2024-03-06 14:59:12.156 - Response to : /127.0.0.1: 614136451: Value for key 'key19': value190
+2024-03-06 14:59:12.156 - Request from : /127.0.0.1: 3590785007::84879aaf-9797-4973-b215-a3e268c9b0a6::GET::key20
+2024-03-06 14:59:12.156 - Response to : /127.0.0.1: 3590785007: Value for key 'key20': value200
+2024-03-06 14:59:12.156 - Request from : /127.0.0.1: 3391209472::05314163-9cfa-427f-9393-e92201f842f7::DELETE::key5
+2024-03-06 14:59:12.157 - Response to : /127.0.0.1: 3391209472: Deleted key 'key5' with value 'value50'
+2024-03-06 14:59:12.157 - Request from : /127.0.0.1: 2645436887::57c67725-6eaf-4861-b461-3493401415ec::DELETE::key6
+2024-03-06 14:59:12.157 - Response to : /127.0.0.1: 2645436887: Deleted key 'key6' with value 'value60'
+2024-03-06 14:59:12.157 - Request from : /127.0.0.1: 2002450633::6020839d-f3e9-421f-905b-c38551f52508::DELETE::key7
+2024-03-06 14:59:12.157 - Response to : /127.0.0.1: 2002450633: Deleted key 'key7' with value 'value70'
+2024-03-06 14:59:12.157 - Request from : /127.0.0.1: 1505228724::fb4fc7fe-b884-492e-a6d7-22db80301a9d::DELETE::key8
+2024-03-06 14:59:12.158 - Response to : /127.0.0.1: 1505228724: Deleted key 'key8' with value 'value80'
+2024-03-06 14:59:12.158 - Request from : /127.0.0.1: 4059421561::363f4719-0376-4b80-8ae9-99c0842d43b5::DELETE::key9
+2024-03-06 14:59:12.158 - Response to : /127.0.0.1: 4059421561: Deleted key 'key9' with value 'value90'
+2024-03-06 14:59:12.158 - Request from : /127.0.0.1: 965474050::8fa109f2-7e64-47ce-b5e6-9ffb1f9ca922::DELETE::key10
+2024-03-06 14:59:12.158 - Response to : /127.0.0.1: 965474050: Deleted key 'key10' with value 'value100'
+2024-03-06 14:59:12.158 - Request from : /127.0.0.1: 3128994907::f8696d1d-60bf-4440-94bc-e6e76457b11a::DELETE::key11
+2024-03-06 14:59:12.158 - Response to : /127.0.0.1: 3128994907: Deleted key 'key11' with value 'value110'
+2024-03-06 14:59:12.158 - Request from : /127.0.0.1: 2409871364::b5fa77a0-06be-4807-86b9-f2ed578765ef::DELETE::key12
+2024-03-06 14:59:12.158 - Response to : /127.0.0.1: 2409871364: Deleted key 'key12' with value 'value120'
+2024-03-06 14:59:12.159 - Request from : /127.0.0.1: 2382586653::03021c35-40fb-4a53-af79-67ec01e66242::DELETE::key13
+2024-03-06 14:59:12.159 - Response to : /127.0.0.1: 2382586653: Deleted key 'key13' with value 'value130'
+2024-03-06 14:59:12.159 - Request from : /127.0.0.1: 2697721168::0e396698-1156-4e64-a0b4-786d5cc3023f::DELETE::key14
+2024-03-06 14:59:12.159 - Response to : /127.0.0.1: 2697721168: Deleted key 'key14' with value 'value140'
+2024-03-06 14:59:12.159 - Request from : /127.0.0.1: 874156106::9bfa86c9-275a-4497-ad39-eb92e4a80551::DELETE::key15
+2024-03-06 14:59:12.159 - Response to : /127.0.0.1: 874156106: Deleted key 'key15' with value 'value150'
+2024-03-06 14:59:12.159 - Request from : /127.0.0.1: 57090978::6ed0d970-fdc4-43fc-831b-3417e74878e6::DELETE::key16
+2024-03-06 14:59:12.159 - Response to : /127.0.0.1: 57090978: Deleted key 'key16' with value 'value160'
+2024-03-06 14:59:12.159 - Request from : /127.0.0.1: 1908808933::32ebe05e-e4dd-4a6b-b265-a63cee9e93cc::DELETE::key17
+2024-03-06 14:59:12.159 - Response to : /127.0.0.1: 1908808933: Deleted key 'key17' with value 'value170'
+2024-03-06 14:59:12.160 - Request from : /127.0.0.1: 4105355610::a5398715-1156-4981-9463-266cdc2ce095::DELETE::key18
+2024-03-06 14:59:12.160 - Response to : /127.0.0.1: 4105355610: Deleted key 'key18' with value 'value180'
+2024-03-06 14:59:12.160 - Request from : /127.0.0.1: 835908222::320e84f1-17fb-4b31-bcc0-0c978da78d07::DELETE::key19
+2024-03-06 14:59:12.160 - Response to : /127.0.0.1: 835908222: Deleted key 'key19' with value 'value190'
+2024-03-06 14:59:12.160 - Request from : /127.0.0.1: 3687971237::1af7dde7-dc8a-4aa5-ac7f-5e9a1d9afee6::DELETE::key20
+2024-03-06 14:59:12.160 - Response to : /127.0.0.1: 3687971237: Deleted key 'key20' with value 'value200'
+2024-03-06 14:59:12.160 - Request from : /127.0.0.1: 2339227646::f9104849-8b4c-483f-aa1c-348131caa50a::SIZE
+2024-03-06 14:59:12.162 - Response to : /127.0.0.1: 2339227646: Size of data store : 4
+2024-03-06 15:04:25.267 - Received Malformed request from /127.0.0.1
+2024-03-06 15:04:25.271 - Client disconnected: /127.0.0.1
+2024-03-06 15:04:54.620 - Server is listening on port 20
+2024-03-06 15:04:57.023 - Request from : /127.0.0.1: Client connected
+2024-03-06 15:04:57.075 - Request from : /127.0.0.1: 411478450::1bba41b0-a04b-4ba5-8227-1d7064106358::PUT::key1::value10
+2024-03-06 15:04:57.082 - Response to : /127.0.0.1: 411478450: Key 'key1' stored with value 'value10'
+2024-03-06 15:04:57.082 - Request from : /127.0.0.1: 1154796804::84737a00-54f4-49e3-af91-5f40be168bca::PUT::key2::value20
+2024-03-06 15:04:57.083 - Response to : /127.0.0.1: 1154796804: Key 'key2' stored with value 'value20'
+2024-03-06 15:04:57.083 - Request from : /127.0.0.1: 2762487113::a4983800-d9d3-48b8-864d-a2bb650fb1bc::PUT::key3::value30
+2024-03-06 15:04:57.083 - Response to : /127.0.0.1: 2762487113: Key 'key3' stored with value 'value30'
+2024-03-06 15:04:57.083 - Request from : /127.0.0.1: 1221799824::542abc22-ff9a-4479-9fd8-76588e479ade::PUT::key4::value40
+2024-03-06 15:04:57.083 - Response to : /127.0.0.1: 1221799824: Key 'key4' stored with value 'value40'
+2024-03-06 15:04:57.083 - Request from : /127.0.0.1: 1592199798::54e02414-815d-45f3-94d2-367a60e68108::PUT::key5::value50
+2024-03-06 15:04:57.084 - Response to : /127.0.0.1: 1592199798: Key 'key5' stored with value 'value50'
+2024-03-06 15:04:57.084 - Request from : /127.0.0.1: 85595639::a397b64c-6851-45a0-8c31-4555badef03e::PUT::key6::value60
+2024-03-06 15:04:57.084 - Response to : /127.0.0.1: 85595639: Key 'key6' stored with value 'value60'
+2024-03-06 15:04:57.084 - Request from : /127.0.0.1: 1785284513::3b5ffe4c-46e0-4e3e-8678-ccb17d3d7a72::PUT::key7::value70
+2024-03-06 15:04:57.085 - Response to : /127.0.0.1: 1785284513: Key 'key7' stored with value 'value70'
+2024-03-06 15:04:57.085 - Request from : /127.0.0.1: 696231334::49c1e5db-2de1-4d8f-940e-402fbfdcae2f::PUT::key8::value80
+2024-03-06 15:04:57.085 - Response to : /127.0.0.1: 696231334: Key 'key8' stored with value 'value80'
+2024-03-06 15:04:57.085 - Request from : /127.0.0.1: 2129214248::01d54f92-6c87-44b0-86b5-a809618b3c53::PUT::key9::value90
+2024-03-06 15:04:57.085 - Response to : /127.0.0.1: 2129214248: Key 'key9' stored with value 'value90'
+2024-03-06 15:04:57.086 - Request from : /127.0.0.1: 3424484598::5072e5f0-e8c4-4627-90f3-0b9bc0cd03f2::PUT::key10::value100
+2024-03-06 15:04:57.086 - Response to : /127.0.0.1: 3424484598: Key 'key10' stored with value 'value100'
+2024-03-06 15:04:57.086 - Request from : /127.0.0.1: 1495872204::4a2778ab-317c-4089-a2de-d9667c345fa8::PUT::key11::value110
+2024-03-06 15:04:57.086 - Response to : /127.0.0.1: 1495872204: Key 'key11' stored with value 'value110'
+2024-03-06 15:04:57.086 - Request from : /127.0.0.1: 364396904::bb044427-46d1-494e-9386-d106c12be353::PUT::key12::value120
+2024-03-06 15:04:57.087 - Response to : /127.0.0.1: 364396904: Key 'key12' stored with value 'value120'
+2024-03-06 15:04:57.087 - Request from : /127.0.0.1: 4073023311::4a337b91-90b1-4fe1-9696-500d23af0528::PUT::key13::value130
+2024-03-06 15:04:57.087 - Response to : /127.0.0.1: 4073023311: Key 'key13' stored with value 'value130'
+2024-03-06 15:04:57.087 - Request from : /127.0.0.1: 1909165134::a9a79f8c-5c51-4b3a-8a62-16bcabebe142::PUT::key14::value140
+2024-03-06 15:04:57.087 - Response to : /127.0.0.1: 1909165134: Key 'key14' stored with value 'value140'
+2024-03-06 15:04:57.087 - Request from : /127.0.0.1: 393228013::12c42a06-6ed0-4ee6-9a2b-dd7ea9f81ecb::PUT::key15::value150
+2024-03-06 15:04:57.088 - Response to : /127.0.0.1: 393228013: Key 'key15' stored with value 'value150'
+2024-03-06 15:04:57.088 - Request from : /127.0.0.1: 332777120::d73e187d-cae4-4e7a-b135-403178f5cd8f::PUT::key16::value160
+2024-03-06 15:04:57.088 - Response to : /127.0.0.1: 332777120: Key 'key16' stored with value 'value160'
+2024-03-06 15:04:57.088 - Request from : /127.0.0.1: 1679131746::c9514f68-da3e-4bf7-8f69-976d24b37dee::PUT::key17::value170
+2024-03-06 15:04:57.088 - Response to : /127.0.0.1: 1679131746: Key 'key17' stored with value 'value170'
+2024-03-06 15:04:57.088 - Request from : /127.0.0.1: 4249770561::88425505-2022-4723-8517-b74efaa1faa7::PUT::key18::value180
+2024-03-06 15:04:57.089 - Response to : /127.0.0.1: 4249770561: Key 'key18' stored with value 'value180'
+2024-03-06 15:04:57.089 - Request from : /127.0.0.1: 895503897::0fcf6a2d-8169-47c8-b4b8-fc45279bc98f::PUT::key19::value190
+2024-03-06 15:04:57.090 - Response to : /127.0.0.1: 895503897: Key 'key19' stored with value 'value190'
+2024-03-06 15:04:57.090 - Request from : /127.0.0.1: 746342303::1629508f-a1d8-43e2-beff-5d8e8392f4ec::PUT::key20::value200
+2024-03-06 15:04:57.090 - Response to : /127.0.0.1: 746342303: Key 'key20' stored with value 'value200'
+2024-03-06 15:04:57.090 - Request from : /127.0.0.1: 1067815842::ab0ed7d6-fe29-415f-b2ca-5e7ad5dcc78f::GETALL
+2024-03-06 15:04:57.098 - Response to : /127.0.0.1: 1067815842:*********************
+GET ALL VALUES : key : key1, value : value10
+key : key2, value : value20
+key : key5, value : value50
+key : key6, value : value60
+key : key3, value : value30
+key : key4, value : value40
+key : key9, value : value90
+key : key7, value : value70
+key : key8, value : value80
+key : key11, value : value110
+key : key10, value : value100
+key : key20, value : value200
+key : key15, value : value150
+key : key14, value : value140
+key : key13, value : value130
+key : key12, value : value120
+key : key19, value : value190
+key : key18, value : value180
+key : key17, value : value170
+key : key16, value : value160
+***************************
+2024-03-06 15:04:57.098 - Request from : /127.0.0.1: 647699181::ac22df99-4be2-44ac-b561-8bf2b68ef2d1::GET::key1
+2024-03-06 15:04:57.098 - Response to : /127.0.0.1: 647699181: Value for key 'key1': value10
+2024-03-06 15:04:57.098 - Request from : /127.0.0.1: 1717627681::1951fd99-fed4-4d14-8992-eedacec23d4e::GET::key2
+2024-03-06 15:04:57.099 - Response to : /127.0.0.1: 1717627681: Value for key 'key2': value20
+2024-03-06 15:04:57.099 - Request from : /127.0.0.1: 870011506::583005c2-9cce-405e-861f-bfd58a87e571::GET::key3
+2024-03-06 15:04:57.099 - Response to : /127.0.0.1: 870011506: Value for key 'key3': value30
+2024-03-06 15:04:57.099 - Request from : /127.0.0.1: 2385176699::dfbe6221-cf84-4a7a-804c-3d7c15fd181a::GET::key4
+2024-03-06 15:04:57.100 - Response to : /127.0.0.1: 2385176699: Value for key 'key4': value40
+2024-03-06 15:04:57.100 - Request from : /127.0.0.1: 1382258087::9cf2b4e5-3660-4969-bee8-d035f0043fb3::GET::key5
+2024-03-06 15:04:57.100 - Response to : /127.0.0.1: 1382258087: Value for key 'key5': value50
+2024-03-06 15:04:57.100 - Request from : /127.0.0.1: 3892601433::3715bfa4-da63-4c05-b745-77e7f018e71c::GET::key6
+2024-03-06 15:04:57.100 - Response to : /127.0.0.1: 3892601433: Value for key 'key6': value60
+2024-03-06 15:04:57.101 - Request from : /127.0.0.1: 577114316::1138db35-7193-4b71-b2f9-3a642899dee7::GET::key7
+2024-03-06 15:04:57.101 - Response to : /127.0.0.1: 577114316: Value for key 'key7': value70
+2024-03-06 15:04:57.101 - Request from : /127.0.0.1: 54377428::df3f0eee-c79e-4147-90aa-5f302cf057f3::GET::key8
+2024-03-06 15:04:57.102 - Response to : /127.0.0.1: 54377428: Value for key 'key8': value80
+2024-03-06 15:04:57.103 - Request from : /127.0.0.1: 245999666::d16dd0e4-38a9-4bb4-82b5-ab0ec51d893a::GET::key9
+2024-03-06 15:04:57.103 - Response to : /127.0.0.1: 245999666: Value for key 'key9': value90
+2024-03-06 15:04:57.103 - Request from : /127.0.0.1: 2779918764::1ec19031-5f3e-470a-b294-864863223480::GET::key10
+2024-03-06 15:04:57.103 - Response to : /127.0.0.1: 2779918764: Value for key 'key10': value100
+2024-03-06 15:04:57.103 - Request from : /127.0.0.1: 2750112911::bb56606d-341b-4c10-8674-58b2513725ee::GET::key11
+2024-03-06 15:04:57.103 - Response to : /127.0.0.1: 2750112911: Value for key 'key11': value110
+2024-03-06 15:04:57.104 - Request from : /127.0.0.1: 1426690944::b0fa6124-5417-47f3-9385-6a7b2a9ab0b7::GET::key12
+2024-03-06 15:04:57.104 - Response to : /127.0.0.1: 1426690944: Value for key 'key12': value120
+2024-03-06 15:04:57.104 - Request from : /127.0.0.1: 3282421782::1bc82db7-7c7a-422c-b242-d508e1c51627::GET::key13
+2024-03-06 15:04:57.104 - Response to : /127.0.0.1: 3282421782: Value for key 'key13': value130
+2024-03-06 15:04:57.104 - Request from : /127.0.0.1: 3602273614::737c899d-1a33-46f3-af70-3632f8501b88::GET::key14
+2024-03-06 15:04:57.105 - Response to : /127.0.0.1: 3602273614: Value for key 'key14': value140
+2024-03-06 15:04:57.105 - Request from : /127.0.0.1: 312465871::24b407dd-68d3-4832-908b-eff7b633ecbb::GET::key15
+2024-03-06 15:04:57.105 - Response to : /127.0.0.1: 312465871: Value for key 'key15': value150
+2024-03-06 15:04:57.105 - Request from : /127.0.0.1: 1374738031::2c80106f-1537-4448-898b-2475b2c4a3e4::GET::key16
+2024-03-06 15:04:57.105 - Response to : /127.0.0.1: 1374738031: Value for key 'key16': value160
+2024-03-06 15:04:57.106 - Request from : /127.0.0.1: 567635945::7f9db9a0-5a75-4928-a3f4-66a37c7501fc::GET::key17
+2024-03-06 15:04:57.106 - Response to : /127.0.0.1: 567635945: Value for key 'key17': value170
+2024-03-06 15:04:57.106 - Request from : /127.0.0.1: 2243217590::d1d3b433-71ff-4e75-b190-f25de821abb8::GET::key18
+2024-03-06 15:04:57.106 - Response to : /127.0.0.1: 2243217590: Value for key 'key18': value180
+2024-03-06 15:04:57.106 - Request from : /127.0.0.1: 1093647859::2ae21be8-a37e-4a66-ba5d-5c6d1ef2b98d::GET::key19
+2024-03-06 15:04:57.106 - Response to : /127.0.0.1: 1093647859: Value for key 'key19': value190
+2024-03-06 15:04:57.106 - Request from : /127.0.0.1: 976701230::7807cece-b078-4e25-935c-d366567ed93f::GET::key20
+2024-03-06 15:04:57.106 - Response to : /127.0.0.1: 976701230: Value for key 'key20': value200
+2024-03-06 15:04:57.107 - Request from : /127.0.0.1: 477751569::6e966995-c5a5-47a2-8af6-4bdc93e3af25::DELETE::key5
+2024-03-06 15:04:57.107 - Response to : /127.0.0.1: 477751569: Deleted key 'key5' with value 'value50'
+2024-03-06 15:04:57.107 - Request from : /127.0.0.1: 444442565::4fad9f76-9007-44d3-8ca4-1c5ca7c63ea7::DELETE::key6
+2024-03-06 15:04:57.107 - Response to : /127.0.0.1: 444442565: Deleted key 'key6' with value 'value60'
+2024-03-06 15:04:57.107 - Request from : /127.0.0.1: 1629381046::c0333bff-22be-424f-b6cf-959e54d12506::DELETE::key7
+2024-03-06 15:04:57.107 - Response to : /127.0.0.1: 1629381046: Deleted key 'key7' with value 'value70'
+2024-03-06 15:04:57.107 - Request from : /127.0.0.1: 2124494746::f7c2ba83-f270-4565-8853-c28468bf48db::DELETE::key8
+2024-03-06 15:04:57.108 - Response to : /127.0.0.1: 2124494746: Deleted key 'key8' with value 'value80'
+2024-03-06 15:04:57.108 - Request from : /127.0.0.1: 1388731531::a66e8fff-7701-4775-b1b7-6e0c2cab8077::DELETE::key9
+2024-03-06 15:04:57.108 - Response to : /127.0.0.1: 1388731531: Deleted key 'key9' with value 'value90'
+2024-03-06 15:04:57.108 - Request from : /127.0.0.1: 2770166314::ff67f6da-d460-47e5-8099-f88670dbd45e::DELETE::key10
+2024-03-06 15:04:57.108 - Response to : /127.0.0.1: 2770166314: Deleted key 'key10' with value 'value100'
+2024-03-06 15:04:57.108 - Request from : /127.0.0.1: 1737288760::244b10bc-7a9b-4a27-be7f-69d323e50ed9::DELETE::key11
+2024-03-06 15:04:57.109 - Response to : /127.0.0.1: 1737288760: Deleted key 'key11' with value 'value110'
+2024-03-06 15:04:57.109 - Request from : /127.0.0.1: 2377419634::b2edb528-7e19-4567-a655-31fbf35aa183::DELETE::key12
+2024-03-06 15:04:57.109 - Response to : /127.0.0.1: 2377419634: Deleted key 'key12' with value 'value120'
+2024-03-06 15:04:57.109 - Request from : /127.0.0.1: 3091823876::9bc2a534-9a01-49bf-94c9-7a54357d993e::DELETE::key13
+2024-03-06 15:04:57.109 - Response to : /127.0.0.1: 3091823876: Deleted key 'key13' with value 'value130'
+2024-03-06 15:04:57.109 - Request from : /127.0.0.1: 3041483421::47ae2cbb-f2b6-4d01-93e1-d1dbff51d660::DELETE::key14
+2024-03-06 15:04:57.109 - Response to : /127.0.0.1: 3041483421: Deleted key 'key14' with value 'value140'
+2024-03-06 15:04:57.109 - Request from : /127.0.0.1: 1878976346::bec592b0-f0b3-4c1c-b1d8-6763a0bc219e::DELETE::key15
+2024-03-06 15:04:57.109 - Response to : /127.0.0.1: 1878976346: Deleted key 'key15' with value 'value150'
+2024-03-06 15:04:57.110 - Request from : /127.0.0.1: 2904353343::24cc4b30-ec6a-47af-b1b0-53a3e03e1157::DELETE::key16
+2024-03-06 15:04:57.110 - Response to : /127.0.0.1: 2904353343: Deleted key 'key16' with value 'value160'
+2024-03-06 15:04:57.110 - Request from : /127.0.0.1: 4018822866::bba88518-496d-424e-b478-f5b01bcb2a2d::DELETE::key17
+2024-03-06 15:04:57.110 - Response to : /127.0.0.1: 4018822866: Deleted key 'key17' with value 'value170'
+2024-03-06 15:04:57.110 - Request from : /127.0.0.1: 3781853303::41223f49-5f6d-415e-8815-134b66e6e3f0::DELETE::key18
+2024-03-06 15:04:57.110 - Response to : /127.0.0.1: 3781853303: Deleted key 'key18' with value 'value180'
+2024-03-06 15:04:57.110 - Request from : /127.0.0.1: 1305079369::4f654769-e381-4818-b7fe-df599de5fce1::DELETE::key19
+2024-03-06 15:04:57.110 - Response to : /127.0.0.1: 1305079369: Deleted key 'key19' with value 'value190'
+2024-03-06 15:04:57.110 - Request from : /127.0.0.1: 590554536::aff946da-11d8-4aad-8e55-acebb61acafe::DELETE::key20
+2024-03-06 15:04:57.111 - Response to : /127.0.0.1: 590554536: Deleted key 'key20' with value 'value200'
+2024-03-06 15:04:57.111 - Request from : /127.0.0.1: 3114032722::b4c867c4-681c-4ebf-9075-2f0e35311cf3::SIZE
+2024-03-06 15:04:57.112 - Response to : /127.0.0.1: 3114032722: Size of data store : 4
+2024-03-06 15:15:24.508 - Received Malformed request from /127.0.0.1
+2024-03-06 15:15:24.512 - Client disconnected: /127.0.0.1
+2024-03-06 15:15:32.158 - Server is listening on port 20
+2024-03-06 15:15:36.655 - Request from : /127.0.0.1: Client connected
+2024-03-06 15:15:36.709 - Request from : /127.0.0.1: 4150111068::fdcfeb56-2e65-4298-b2ba-4fde86fe90d0::PUT::key1::value10
+2024-03-06 15:15:36.715 - Response to : /127.0.0.1: 4150111068: Key 'key1' stored with value 'value10'
+2024-03-06 15:15:41.739 - Request from : /127.0.0.1: 3569428948::635ec7fd-4c03-4eb7-a7b9-9847d889ce9a::PUT::key2::value20
+2024-03-06 15:15:41.740 - Response to : /127.0.0.1: 3569428948: Key 'key2' stored with value 'value20'
+2024-03-06 15:15:46.750 - Request from : /127.0.0.1: 2167779869::397ec4ea-c5ce-497a-8280-de85b9136859::PUT::key3::value30
+2024-03-06 15:15:46.751 - Response to : /127.0.0.1: 2167779869: Key 'key3' stored with value 'value30'
+2024-03-06 15:15:48.489 - Client disconnected: /127.0.0.1
+2024-03-06 15:19:49.072 - Server is listening on port 20
+2024-03-06 15:19:51.455 - Request from : /127.0.0.1: Client connected
+2024-03-06 15:19:51.508 - Request from : /127.0.0.1: 4061492287::bd51e915-e497-497c-adcc-17f911d8a14f::PUT::key1::value10
+2024-03-06 15:19:51.514 - Response to : /127.0.0.1: 4061492287: Key 'key1' stored with value 'value10'
+2024-03-06 15:19:56.539 - Request from : /127.0.0.1: 2810684772::7a492c09-3723-4575-93f3-6ee4da713ba3::PUT::key2::value20
+2024-03-06 15:19:56.539 - Response to : /127.0.0.1: 2810684772: Key 'key2' stored with value 'value20'
+2024-03-06 15:20:01.549 - Request from : /127.0.0.1: 2468487409::ffbf2e9c-1f41-4f8d-a229-c16e565746a4::PUT::key3::value30
+2024-03-06 15:20:01.550 - Response to : /127.0.0.1: 2468487409: Key 'key3' stored with value 'value30'
+2024-03-06 15:20:06.559 - Request from : /127.0.0.1: 2254274655::ba046293-b457-446c-94fe-4a5be4d52bb3::PUT::key4::value40
+2024-03-06 15:20:06.560 - Response to : /127.0.0.1: 2254274655: Key 'key4' stored with value 'value40'
+2024-03-06 15:20:11.565 - Request from : /127.0.0.1: 1624911333::34ca5478-c93f-44c5-a1ed-3d3ebf70c23e::PUT::key5::value50
+2024-03-06 15:20:11.566 - Response to : /127.0.0.1: 1624911333: Key 'key5' stored with value 'value50'
+2024-03-06 15:20:16.575 - Request from : /127.0.0.1: 3652742638::cf60d92e-de22-4451-b4b2-c8daafe0c28b::PUT::key6::value60
+2024-03-06 15:20:16.576 - Response to : /127.0.0.1: 3652742638: Key 'key6' stored with value 'value60'
+2024-03-06 15:20:21.586 - Request from : /127.0.0.1: 1058336100::ab5671f1-9e51-4de9-ac5f-43bea66f902d::PUT::key7::value70
+2024-03-06 15:20:21.587 - Response to : /127.0.0.1: 1058336100: Key 'key7' stored with value 'value70'
+2024-03-06 15:20:26.599 - Request from : /127.0.0.1: 2784212451::77281407-d687-43aa-b4d1-243476b54e2a::PUT::key8::value80
+2024-03-06 15:20:26.601 - Response to : /127.0.0.1: 2784212451: Key 'key8' stored with value 'value80'
+2024-03-06 15:20:31.628 - Request from : /127.0.0.1: 1146798293::674d7d78-105b-4a45-be73-11ecbe479662::PUT::key9::value90
+2024-03-06 15:20:31.629 - Response to : /127.0.0.1: 1146798293: Key 'key9' stored with value 'value90'
+2024-03-06 15:32:44.977 - Server is listening on port 20
+2024-03-06 15:32:48.037 - Request from : /127.0.0.1: Client connected
+2024-03-06 15:32:48.091 - Request from : /127.0.0.1: 217249723::de6c4d28-ff94-4968-ba77-371f47368f53::PUT::key1::value10
+2024-03-06 15:32:48.096 - Response to : /127.0.0.1: 217249723: Key 'key1' stored with value 'value10'
+2024-03-06 15:32:48.103 - Request from : /127.0.0.1: 968514665::b8aa42d9-188b-470e-8b9b-3bba76bd4188::PUT::key2::value20
+2024-03-06 15:32:48.103 - Response to : /127.0.0.1: 968514665: Key 'key2' stored with value 'value20'
+2024-03-06 15:32:48.103 - Request from : /127.0.0.1: 278976708::d1614700-0908-4c01-b52f-54ca3b1ebf8c::PUT::key3::value30
+2024-03-06 15:32:48.104 - Response to : /127.0.0.1: 278976708: Key 'key3' stored with value 'value30'
+2024-03-06 15:32:48.104 - Request from : /127.0.0.1: 1939402901::f71a09ad-c655-4331-ad64-071e1697e6be::PUT::key4::value40
+2024-03-06 15:32:48.104 - Response to : /127.0.0.1: 1939402901: Key 'key4' stored with value 'value40'
+2024-03-06 15:32:48.104 - Request from : /127.0.0.1: 2494661829::727a68a3-3623-4b71-b907-22b4569afd5b::PUT::key5::value50
+2024-03-06 15:32:48.105 - Response to : /127.0.0.1: 2494661829: Key 'key5' stored with value 'value50'
+2024-03-06 15:32:48.105 - Request from : /127.0.0.1: 3089301152::94be4698-57aa-4d75-a405-ec5a19b013cf::PUT::key6::value60
+2024-03-06 15:32:48.105 - Response to : /127.0.0.1: 3089301152: Key 'key6' stored with value 'value60'
+2024-03-06 15:32:48.106 - Request from : /127.0.0.1: 4128625236::8dccbff3-46b9-4531-aac1-88cc14617c0a::PUT::key7::value70
+2024-03-06 15:32:48.106 - Response to : /127.0.0.1: 4128625236: Key 'key7' stored with value 'value70'
+2024-03-06 15:32:48.106 - Request from : /127.0.0.1: 2831123356::e1fd3b0c-7de1-486a-9b55-83ed5a7f6ae4::PUT::key8::value80
+2024-03-06 15:32:48.106 - Response to : /127.0.0.1: 2831123356: Key 'key8' stored with value 'value80'
+2024-03-06 15:32:48.107 - Request from : /127.0.0.1: 1379910549::396e96c3-217b-4905-b557-8c51e3c7dc7b::PUT::key9::value90
+2024-03-06 15:32:48.107 - Response to : /127.0.0.1: 1379910549: Key 'key9' stored with value 'value90'
+2024-03-06 15:32:48.108 - Request from : /127.0.0.1: 3353665204::17217f01-77f1-4aa0-8790-899fe39fab51::PUT::key10::value100
+2024-03-06 15:32:48.108 - Response to : /127.0.0.1: 3353665204: Key 'key10' stored with value 'value100'
+2024-03-06 15:32:48.108 - Request from : /127.0.0.1: 4265814592::a76f9a30-1100-4c40-873e-8c78eb31baf8::PUT::key11::value110
+2024-03-06 15:32:48.108 - Response to : /127.0.0.1: 4265814592: Key 'key11' stored with value 'value110'
+2024-03-06 15:32:48.109 - Request from : /127.0.0.1: 2778114508::54663f67-b56f-49f3-81b0-81e2670bd4bc::PUT::key12::value120
+2024-03-06 15:32:48.109 - Response to : /127.0.0.1: 2778114508: Key 'key12' stored with value 'value120'
+2024-03-06 15:32:48.110 - Request from : /127.0.0.1: 2269077118::9a07518b-6b8d-43d9-b126-c4e836725af8::PUT::key13::value130
+2024-03-06 15:32:48.110 - Response to : /127.0.0.1: 2269077118: Key 'key13' stored with value 'value130'
+2024-03-06 15:32:48.111 - Request from : /127.0.0.1: 431323640::0e6f2594-83c3-4169-812e-e451a2e64d21::PUT::key14::value140
+2024-03-06 15:32:48.111 - Response to : /127.0.0.1: 431323640: Key 'key14' stored with value 'value140'
+2024-03-06 15:32:48.111 - Request from : /127.0.0.1: 2745031500::d9b564ef-9b71-4735-8968-db391faff16a::PUT::key15::value150
+2024-03-06 15:32:48.111 - Response to : /127.0.0.1: 2745031500: Key 'key15' stored with value 'value150'
+2024-03-06 15:32:48.112 - Request from : /127.0.0.1: 2882092582::505f0c49-dde4-46d8-8a2e-30055c8a3e5b::PUT::key16::value160
+2024-03-06 15:32:48.112 - Response to : /127.0.0.1: 2882092582: Key 'key16' stored with value 'value160'
+2024-03-06 15:32:48.113 - Request from : /127.0.0.1: 1871965619::6186f7e4-6542-40f5-9605-13fef1fa9862::PUT::key17::value170
+2024-03-06 15:32:48.113 - Response to : /127.0.0.1: 1871965619: Key 'key17' stored with value 'value170'
+2024-03-06 15:32:48.113 - Request from : /127.0.0.1: 4254634079::b424724a-b189-49b2-8f8a-397f9b4dbeaf::PUT::key18::value180
+2024-03-06 15:32:48.113 - Response to : /127.0.0.1: 4254634079: Key 'key18' stored with value 'value180'
+2024-03-06 15:32:48.114 - Request from : /127.0.0.1: 4100975766::6bc3219d-2417-4423-aeaf-dfa14dad7c85::PUT::key19::value190
+2024-03-06 15:32:48.114 - Response to : /127.0.0.1: 4100975766: Key 'key19' stored with value 'value190'
+2024-03-06 15:32:48.115 - Request from : /127.0.0.1: 3207375889::991bc655-c9a5-41c8-bb00-53706bf76dd4::PUT::key20::value200
+2024-03-06 15:32:48.115 - Response to : /127.0.0.1: 3207375889: Key 'key20' stored with value 'value200'
+2024-03-06 15:32:48.117 - Request from : /127.0.0.1: 770232598::073c2a64-d516-4785-ad26-97658b325c59::GETALL
+2024-03-06 15:32:48.121 - Response to : /127.0.0.1: 770232598:GET ALL VALUES : ?key : key1, value : value10?key : key2, value : value20?key : key5, value : value50?key : key6, value : value60?key : key3, value : value30?key : key4, value : value40?key : key9, value : value90?key : key7, value : value70?key : key8, value : value80?key : key11, value : value110?key : key10, value : value100?key : key20, value : value200?key : key15, value : value150?key : key14, value : value140?key : key13, value : value130?key : key12, value : value120?key : key19, value : value190?key : key18, value : value180?key : key17, value : value170?key : key16, value : value160?***************************
+2024-03-06 15:32:48.122 - Request from : /127.0.0.1: 2594697715::4609b4dd-ad5f-47fa-9576-ed4dde25c607::GET::key1
+2024-03-06 15:32:48.122 - Response to : /127.0.0.1: 2594697715: Value for key 'key1': value10
+2024-03-06 15:32:48.123 - Request from : /127.0.0.1: 2298832448::fb152177-152c-4cee-8142-07895f3030a1::GET::key2
+2024-03-06 15:32:48.123 - Response to : /127.0.0.1: 2298832448: Value for key 'key2': value20
+2024-03-06 15:32:48.123 - Request from : /127.0.0.1: 3191165946::f8e17d68-9312-44c8-a10b-d362109d47f4::GET::key3
+2024-03-06 15:32:48.124 - Response to : /127.0.0.1: 3191165946: Value for key 'key3': value30
+2024-03-06 15:32:48.124 - Request from : /127.0.0.1: 1885197170::04541167-1613-46b3-9449-6859eac33f75::GET::key4
+2024-03-06 15:32:48.124 - Response to : /127.0.0.1: 1885197170: Value for key 'key4': value40
+2024-03-06 15:32:48.125 - Request from : /127.0.0.1: 2301775437::d58a06dc-db43-4443-a107-4a40e8d12f01::GET::key5
+2024-03-06 15:32:48.125 - Response to : /127.0.0.1: 2301775437: Value for key 'key5': value50
+2024-03-06 15:32:48.125 - Request from : /127.0.0.1: 519177948::461a92f4-d34c-49df-a07a-8f3b01cb5459::GET::key6
+2024-03-06 15:32:48.126 - Response to : /127.0.0.1: 519177948: Value for key 'key6': value60
+2024-03-06 15:32:48.126 - Request from : /127.0.0.1: 497211849::8f158512-3f45-4514-ba49-ca3ad9e3cddd::GET::key7
+2024-03-06 15:32:48.126 - Response to : /127.0.0.1: 497211849: Value for key 'key7': value70
+2024-03-06 15:32:48.127 - Request from : /127.0.0.1: 3638906461::e4fde2b8-8cec-4bd1-843d-50f9b1acc8d3::GET::key8
+2024-03-06 15:32:48.127 - Response to : /127.0.0.1: 3638906461: Value for key 'key8': value80
+2024-03-06 15:32:48.127 - Request from : /127.0.0.1: 1446648820::1687f4d3-e978-4182-90ce-d6ca9774e80c::GET::key9
+2024-03-06 15:32:48.128 - Response to : /127.0.0.1: 1446648820: Value for key 'key9': value90
+2024-03-06 15:32:48.128 - Request from : /127.0.0.1: 1220942585::43231d97-f933-466a-b7a6-003e31106880::GET::key10
+2024-03-06 15:32:48.128 - Response to : /127.0.0.1: 1220942585: Value for key 'key10': value100
+2024-03-06 15:32:48.129 - Request from : /127.0.0.1: 3185164300::ec2b4059-8971-424d-bbe6-e452a70c86f5::GET::key11
+2024-03-06 15:32:48.129 - Response to : /127.0.0.1: 3185164300: Value for key 'key11': value110
+2024-03-06 15:32:48.129 - Request from : /127.0.0.1: 2185568887::9178153e-3c0e-4481-9b2e-80c4973f5cb0::GET::key12
+2024-03-06 15:32:48.130 - Response to : /127.0.0.1: 2185568887: Value for key 'key12': value120
+2024-03-06 15:32:48.130 - Request from : /127.0.0.1: 479305053::935a223c-b007-4b29-9e54-0e8f8eb9e863::GET::key13
+2024-03-06 15:32:48.130 - Response to : /127.0.0.1: 479305053: Value for key 'key13': value130
+2024-03-06 15:32:48.131 - Request from : /127.0.0.1: 482029261::fec0e637-4cee-4bfe-b097-70449edbcc1f::GET::key14
+2024-03-06 15:32:48.131 - Response to : /127.0.0.1: 482029261: Value for key 'key14': value140
+2024-03-06 15:32:48.132 - Request from : /127.0.0.1: 2477073572::508a255b-a67f-4bcc-b668-3901daeea964::GET::key15
+2024-03-06 15:32:48.132 - Response to : /127.0.0.1: 2477073572: Value for key 'key15': value150
+2024-03-06 15:32:48.132 - Request from : /127.0.0.1: 4229711135::2246c3e7-fa23-4860-8aed-8671be19bca7::GET::key16
+2024-03-06 15:32:48.132 - Response to : /127.0.0.1: 4229711135: Value for key 'key16': value160
+2024-03-06 15:32:48.133 - Request from : /127.0.0.1: 3715397167::d7e3e0d8-b17e-4dca-a811-119ce46cca51::GET::key17
+2024-03-06 15:32:48.133 - Response to : /127.0.0.1: 3715397167: Value for key 'key17': value170
+2024-03-06 15:32:48.134 - Request from : /127.0.0.1: 3360425189::b9ac784b-d16a-49ca-957b-a386c6520f2d::GET::key18
+2024-03-06 15:32:48.134 - Response to : /127.0.0.1: 3360425189: Value for key 'key18': value180
+2024-03-06 15:32:48.135 - Request from : /127.0.0.1: 2083229701::417dfc3e-caa7-4aa8-bd8c-66af13a6d4ea::GET::key19
+2024-03-06 15:32:48.135 - Response to : /127.0.0.1: 2083229701: Value for key 'key19': value190
+2024-03-06 15:32:48.135 - Request from : /127.0.0.1: 3020506398::03744314-8fd4-40c5-9ae7-f7298445a18e::GET::key20
+2024-03-06 15:32:48.135 - Response to : /127.0.0.1: 3020506398: Value for key 'key20': value200
+2024-03-06 15:32:48.136 - Request from : /127.0.0.1: 2803422035::db3fc746-b14f-4efa-bbc9-bd6db2e32b90::DELETE::key5
+2024-03-06 15:32:48.136 - Response to : /127.0.0.1: 2803422035: Deleted key 'key5' with value 'value50'
+2024-03-06 15:32:48.137 - Request from : /127.0.0.1: 160912949::05bb100f-17cc-4c36-88fa-f7424501948b::DELETE::key6
+2024-03-06 15:32:48.137 - Response to : /127.0.0.1: 160912949: Deleted key 'key6' with value 'value60'
+2024-03-06 15:32:48.137 - Request from : /127.0.0.1: 5369359::1edf75c8-0229-45d2-badd-c0aecb4d9e9e::DELETE::key7
+2024-03-06 15:32:48.138 - Response to : /127.0.0.1: 5369359: Deleted key 'key7' with value 'value70'
+2024-03-06 15:32:48.138 - Request from : /127.0.0.1: 470760304::f68b57f2-4bc6-4105-85cd-cfa1cdf1f8c4::DELETE::key8
+2024-03-06 15:32:48.138 - Response to : /127.0.0.1: 470760304: Deleted key 'key8' with value 'value80'
+2024-03-06 15:32:48.138 - Request from : /127.0.0.1: 1444952715::f4148761-a213-44ef-9093-d29c16daf4df::DELETE::key9
+2024-03-06 15:32:48.139 - Response to : /127.0.0.1: 1444952715: Deleted key 'key9' with value 'value90'
+2024-03-06 15:32:48.139 - Request from : /127.0.0.1: 56255473::a76bcc92-a7e6-45c5-9093-be32ac0f5752::DELETE::key10
+2024-03-06 15:32:48.139 - Response to : /127.0.0.1: 56255473: Deleted key 'key10' with value 'value100'
+2024-03-06 15:32:48.140 - Request from : /127.0.0.1: 1108169969::e4fbcd91-5424-46af-b6d4-cc11a606c927::DELETE::key11
+2024-03-06 15:32:48.140 - Response to : /127.0.0.1: 1108169969: Deleted key 'key11' with value 'value110'
+2024-03-06 15:32:48.141 - Request from : /127.0.0.1: 2407849640::2c9cd533-0d00-403c-8c89-d30a9b754200::DELETE::key12
+2024-03-06 15:32:48.141 - Response to : /127.0.0.1: 2407849640: Deleted key 'key12' with value 'value120'
+2024-03-06 15:32:48.141 - Request from : /127.0.0.1: 3844006233::a6a99082-8f2a-4692-b481-8aa7d9cc3a41::DELETE::key13
+2024-03-06 15:32:48.141 - Response to : /127.0.0.1: 3844006233: Deleted key 'key13' with value 'value130'
+2024-03-06 15:32:48.142 - Request from : /127.0.0.1: 665921009::bb56593b-7681-4a9e-9c56-20e060c5ec71::DELETE::key14
+2024-03-06 15:32:48.142 - Response to : /127.0.0.1: 665921009: Deleted key 'key14' with value 'value140'
+2024-03-06 15:32:48.142 - Request from : /127.0.0.1: 676982265::42a9bcd1-c339-49c1-82f9-81c0a361caa9::DELETE::key15
+2024-03-06 15:32:48.142 - Response to : /127.0.0.1: 676982265: Deleted key 'key15' with value 'value150'
+2024-03-06 15:32:48.143 - Request from : /127.0.0.1: 2158838588::a7c94d94-6c66-4d5e-bed5-c6e9f94d9076::DELETE::key16
+2024-03-06 15:32:48.143 - Response to : /127.0.0.1: 2158838588: Deleted key 'key16' with value 'value160'
+2024-03-06 15:32:48.143 - Request from : /127.0.0.1: 1896695007::9a49dede-6f6f-4783-b297-d3cd15390349::DELETE::key17
+2024-03-06 15:32:48.144 - Response to : /127.0.0.1: 1896695007: Deleted key 'key17' with value 'value170'
+2024-03-06 15:32:48.144 - Request from : /127.0.0.1: 1319841609::e7551c29-1b54-4f78-96b7-d1b16822cdf6::DELETE::key18
+2024-03-06 15:32:48.144 - Response to : /127.0.0.1: 1319841609: Deleted key 'key18' with value 'value180'
+2024-03-06 15:32:48.145 - Request from : /127.0.0.1: 1973103319::dedbdce9-47c5-4b44-b25d-6f984b05077d::DELETE::key19
+2024-03-06 15:32:48.145 - Response to : /127.0.0.1: 1973103319: Deleted key 'key19' with value 'value190'
+2024-03-06 15:32:48.146 - Request from : /127.0.0.1: 4247155970::bad29b88-c42e-42bc-89e9-5a1d6709b5a0::DELETE::key20
+2024-03-06 15:32:48.146 - Response to : /127.0.0.1: 4247155970: Deleted key 'key20' with value 'value200'
+2024-03-06 15:32:48.146 - Request from : /127.0.0.1: 1309783868::1752c513-915d-48f7-a4aa-cbe5bb7deefb::SIZE
+2024-03-06 15:32:48.148 - Response to : /127.0.0.1: 1309783868: Size of data store : 4
+2024-03-06 15:36:33.637 - Request from : /127.0.0.1: 2435845169::37a71746-8cd6-477f-9d6a-e0ee410c7cdb::GETALL
+2024-03-06 15:36:33.640 - Response to : /127.0.0.1: 2435845169:GET ALL VALUES : ?key : key1, value : value10?key : key2, value : value20?key : key3, value : value30?key : key4, value : value40?***************************
+2024-03-06 15:36:48.581 - Request from : /127.0.0.1: 812915951::7171da12-c8ec-4c38-93bd-53551b3d0f63::SIZE
+2024-03-06 15:36:48.584 - Response to : /127.0.0.1: 812915951: Size of data store : 4
+2024-03-06 15:49:13.424 - Client disconnected: /127.0.0.1

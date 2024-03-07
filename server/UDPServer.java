@@ -16,6 +16,7 @@ public class UDPServer extends AbstractServer {
 
     // Server socket creation on specified port number.
     try (DatagramSocket aSocket = new DatagramSocket(portNumber)) {
+      System.out.println("Server active on port " + portNumber);
       serverLogger.log("Server active on port " + portNumber);
 
       while (true) {
@@ -44,10 +45,38 @@ public class UDPServer extends AbstractServer {
         String response = processRequest(msg);
 
         // sending response back to client
-        DatagramPacket reply = new DatagramPacket(response.getBytes(),
-          response.getBytes().length, request.getAddress(), request.getPort());
-        aSocket.send(reply);
-        serverLogger.logResponse(reply.getAddress(),response);
+
+        // for GET ALL requests
+        if(response.contains("?")){
+          int max_size = aSocket.getSendBufferSize();
+          String[] tokens = response.split("\\?");
+          StringBuilder maxDataInPacket = new StringBuilder();
+          for(String token : tokens){
+              if(maxDataInPacket.length()+token.length()<max_size/2) maxDataInPacket.append(token+"?");
+              else{
+                maxDataInPacket.deleteCharAt(maxDataInPacket.length() - 1);
+                DatagramPacket reply = new DatagramPacket(response.getBytes(),
+                        response.getBytes().length, request.getAddress(), request.getPort());
+                aSocket.send(reply);
+                serverLogger.logResponse(reply.getAddress(),response);
+                maxDataInPacket = new StringBuilder();
+              }
+          }
+
+          // for the last packet containing data
+          maxDataInPacket.deleteCharAt(maxDataInPacket.length() - 1);
+          DatagramPacket reply = new DatagramPacket(response.getBytes(),
+                  response.getBytes().length, request.getAddress(), request.getPort());
+          aSocket.send(reply);
+          serverLogger.logResponse(reply.getAddress(),response);
+        }
+        // rest all other requests
+        else{
+          DatagramPacket reply = new DatagramPacket(response.getBytes(),
+                  response.getBytes().length, request.getAddress(), request.getPort());
+          aSocket.send(reply);
+          serverLogger.logResponse(reply.getAddress(),response);
+        }
       }
     } catch (SocketException e) {
       System.out.println("Socket: " + e.getMessage());

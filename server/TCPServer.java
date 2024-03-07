@@ -60,6 +60,9 @@ public class TCPServer extends AbstractServer {
                 out.println(response);
 
                 // log the response information
+                if(response.contains("?")){
+                    response = response.replace("?","\n");
+                }
                 serverLogger.logResponse(clientSocket.getInetAddress(),response);
             }
         } catch (IOException e) {

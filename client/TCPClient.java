@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.UUID;
+import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
 
@@ -65,7 +66,12 @@ public class TCPClient extends AbstractClient {
             // Send request to server
             out.println(request);
             // Receive response from server
+
             String responseFromServer = in.readLine();
+
+            if(responseFromServer.contains("?")){
+                responseFromServer=responseFromServer.replace("?","\n");
+            }
             System.out.println(responseFromServer);
             // Log response
             ClientLogger.log("Response from server: " + responseFromServer);
@@ -93,10 +99,17 @@ public class TCPClient extends AbstractClient {
                 System.out.println("Pre-populated key" + key + " with value " + value);
                 ClientLogger.log("Pre-populated key" + key + " with value " + value);
             }
+            //GET ALL request
+            String requestId = UUID.randomUUID().toString();
+            String getAllString = requestId + "::" + "GETALL";
+            sendRequest(out, in, getAllString);
+            System.out.println("*****GET ALL values*****");
+            ClientLogger.log("*****GET ALL values*****");
+
             //GET requests
             for (int i = 1; i <= NUM_KEYS*2; i++) {
                 UUID uuid = UUID.randomUUID();
-                String requestId = uuid.toString();
+                requestId = uuid.toString();
                 String key = Integer.toString(i);
                 String getString = requestId + "::GET::key" + key;
 
@@ -107,7 +120,7 @@ public class TCPClient extends AbstractClient {
             //DELETE requests
             for (int i = 5; i <= NUM_KEYS*2; i++) {
                 UUID uuid = UUID.randomUUID();
-                String requestId = uuid.toString();
+                requestId = uuid.toString();
                 String key = Integer.toString(i);
                 String deleteString = requestId + "::DELETE::key" + key;
 
@@ -115,6 +128,13 @@ public class TCPClient extends AbstractClient {
                 System.out.println("DELETE key" + key);
                 ClientLogger.log("DELETE key" + key);
             }
+            // SIZE request
+            UUID uuid = UUID.randomUUID();
+            requestId = uuid.toString();
+            String sizeString = requestId + "::SIZE";
+            sendRequest(out, in, sizeString);
+            System.out.println("SIZE request");
+            ClientLogger.log("SIZE request");
         } catch (IOException e) {
             e.printStackTrace();
         }
