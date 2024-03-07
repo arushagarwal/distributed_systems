@@ -6,24 +6,29 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.logging.Logger;
 
 /**
  * This represents a TCP based server which listens at a given port number for TCP client requests.
  */
 public class TCPServer extends AbstractServer {
 
+    private Logger logger;
+    public TCPServer(Logger logger){
+        this.logger=logger;
+    }
     @Override
     public void listen(int portNumber) {
         try (ServerSocket serverSocket = new ServerSocket(portNumber)) {
 
             System.out.println("Server is listening on port " + portNumber);
-            serverLogger.log("Server is listening on port " + portNumber);
+            logger.info("Server is listening on port " + portNumber);
 
             while (true) {
                 // Start listening to client requests and creating client socket
                 Socket clientSocket = serverSocket.accept();
                 System.out.println("client.Client connected: " + clientSocket.getInetAddress());
-                serverLogger.logRequest(clientSocket.getInetAddress(), "Client connected");
+                logger.info(" - Request from : " + clientSocket.getInetAddress() + ": Client connected");
 
                 try {
                     handleRequest(clientSocket);
@@ -33,7 +38,7 @@ public class TCPServer extends AbstractServer {
                     // log information when client closes connection
                     clientSocket.close();
                     System.out.println("client.Client disconnected");
-                    serverLogger.log("Client disconnected: " + clientSocket.getInetAddress());
+                    logger.info("Client disconnected: " + clientSocket.getInetAddress());
                 }
             }
         } catch (IOException e) {
@@ -51,7 +56,7 @@ public class TCPServer extends AbstractServer {
             while ((inputLine = in.readLine()) != null) {
                 System.out.println("Received from client: " + inputLine);
                 // log client request information
-                serverLogger.logRequest(clientSocket.getInetAddress(), inputLine);
+                logger.info(" - Request from : " + clientSocket.getInetAddress() + ": "+inputLine);
 
                 // get information from the key value store
                 String response = processRequest(inputLine);
@@ -63,12 +68,12 @@ public class TCPServer extends AbstractServer {
                 if(response.contains("?")){
                     response = response.replace("?","\n");
                 }
-                serverLogger.logResponse(clientSocket.getInetAddress(),response);
+                logger.info(" - Response to : " + clientSocket.getInetAddress() + ": " + response);
             }
         } catch (IOException e) {
             // Log information about timed out requests.
             System.err.println("Timeout occurred. Server did not respond within the specified time.");
-            serverLogger.logMalformedRequest(clientSocket.getInetAddress());
+            logger.warning(" - Received Malformed request from " + clientSocket.getInetAddress());
 
         }
     }

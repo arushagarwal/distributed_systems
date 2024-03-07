@@ -5,12 +5,18 @@ import java.io.*;
 import java.util.UUID;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
+import java.util.logging.Logger;
 
 /**
  * This represents the UDP client which communicates to the UDP server over a given port and host
  * address.
  */
 public class UDPClient extends AbstractClient {
+
+  private Logger logger;
+  public UDPClient(Logger logger){
+    this.logger=logger;
+  }
   @Override
   public void startClient(String serverIp, int portNum) {
     try (DatagramSocket aSocket = new DatagramSocket();
@@ -41,19 +47,19 @@ public class UDPClient extends AbstractClient {
     }
   }
 
-  private static String generateUUID() {
+  private String generateUUID() {
     UUID uuid = UUID.randomUUID();
     return uuid.toString();
   }
 
-  private static long generateChecksum(String requestString) {
+  private long generateChecksum(String requestString) {
     byte [] m = requestString.getBytes();
     Checksum crc32 = new CRC32();
     crc32.update(m, 0, m.length);
     return crc32.getValue();
   }
 
-  private static void sendRequest(DatagramSocket aSocket, String requestString, InetAddress aHost,
+  private void sendRequest(DatagramSocket aSocket, String requestString, InetAddress aHost,
       int serverPort) throws IOException {
 
     // Parse request information from the request string.
@@ -87,22 +93,22 @@ public class UDPClient extends AbstractClient {
 
       // validating malformed responses from server
       if(responseRequestId != requestId) {
-        ClientLogger.log("Received Malformed response for request: " + requestId +
+        logger.info("Received Malformed response for request: " + requestId +
           " ; Received response for " + responseToken[0]);
       } else {
         if(response.contains("?")) response=response.replace("?","\n");
-        ClientLogger.log("Received response " + response);
+        logger.info("Received response " + response);
         System.out.println(action+" Reply: " + response);
       }
     } catch(SocketTimeoutException e) {
       System.out.println("Request timed out.. received no response from server for request: "
         + requestId);
-      ClientLogger.log("Request timed out.. received no response from server for request: "
+      logger.info("Request timed out.. received no response from server for request: "
           + requestId);
     }
   }
 
-  private static void populateKeyValues(DatagramSocket aSocket, InetAddress aHost, int serverPort)
+  private void populateKeyValues(DatagramSocket aSocket, InetAddress aHost, int serverPort)
     throws IOException {
     final int NUM_KEYS = 500;
     //Pre-populating key value store

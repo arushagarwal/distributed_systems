@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.UUID;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
@@ -15,16 +16,21 @@ import java.util.zip.Checksum;
  * This is a TCP Client class, that interacts with the server.
  */
 public class TCPClient extends AbstractClient {
+
+    private Logger logger;
+    public TCPClient(Logger logger){
+        this.logger=logger;
+    }
     public void startClient(String serverIP, int serverPort) {
         Socket socket = null;
         try {
             socket = new Socket(serverIP, serverPort);
             socket.setSoTimeout(5000);
             System.out.println("Connected to the server");
-            ClientLogger.log("Connected to the server");
+            logger.info("Connected to the server");
         } catch (IOException e) {
             System.out.println("Couldn't connect to server at mentioned IP and port");
-            ClientLogger.log("Couldn't connect to server at mentioned IP and port\"");
+            logger.info("Couldn't connect to server at mentioned IP and port\"");
             System.exit(1);
         }
 
@@ -53,14 +59,14 @@ public class TCPClient extends AbstractClient {
         }
     }
 
-    private static long generateChecksum(String requestString) {
+    private long generateChecksum(String requestString) {
         byte [] m = requestString.getBytes();
         Checksum crc32 = new CRC32();
         crc32.update(m, 0, m.length);
         return crc32.getValue();
     }
 
-    private static void sendRequest(PrintWriter out, BufferedReader in, String request) throws IOException {
+    private void sendRequest(PrintWriter out, BufferedReader in, String request) throws IOException {
         try{
             request = generateChecksum(request) + "::" + request;
             // Send request to server
@@ -74,17 +80,17 @@ public class TCPClient extends AbstractClient {
             }
             System.out.println(responseFromServer);
             // Log response
-            ClientLogger.log("Response from server: " + responseFromServer);
+            logger.info("Response from server: " + responseFromServer);
 
         } catch (SocketTimeoutException e){
             String[] strArr = request.split("::");
             String requestId = strArr[0];
             System.out.println("Received no response from the server for request id : "+requestId);
-            ClientLogger.log("Received no response from the server for the request id : "+requestId);
+            logger.info("Received no response from the server for the request id : "+requestId);
         }
     }
 
-    private static void populateKeyValues(BufferedReader in, PrintWriter out) {
+    private void populateKeyValues(BufferedReader in, PrintWriter out) {
         final int NUM_KEYS = 10;
         try {
             // PUT requests
@@ -97,14 +103,14 @@ public class TCPClient extends AbstractClient {
 
                 sendRequest(out, in, putString);
                 System.out.println("Pre-populated key" + key + " with value " + value);
-                ClientLogger.log("Pre-populated key" + key + " with value " + value);
+                logger.info("Pre-populated key" + key + " with value " + value);
             }
             //GET ALL request
             String requestId = UUID.randomUUID().toString();
             String getAllString = requestId + "::" + "GETALL";
             sendRequest(out, in, getAllString);
             System.out.println("*****GET ALL values*****");
-            ClientLogger.log("*****GET ALL values*****");
+            logger.info("*****GET ALL values*****");
 
             //GET requests
             for (int i = 1; i <= NUM_KEYS*2; i++) {
@@ -115,7 +121,7 @@ public class TCPClient extends AbstractClient {
 
                 sendRequest(out, in, getString);
                 System.out.println("GET key" + key);
-                ClientLogger.log("GET key" + key);
+                logger.info("GET key" + key);
             }
             //DELETE requests
             for (int i = 5; i <= NUM_KEYS*2; i++) {
@@ -126,7 +132,7 @@ public class TCPClient extends AbstractClient {
 
                 sendRequest(out, in, deleteString);
                 System.out.println("DELETE key" + key);
-                ClientLogger.log("DELETE key" + key);
+                logger.info("DELETE key" + key);
             }
             // SIZE request
             UUID uuid = UUID.randomUUID();
@@ -134,7 +140,7 @@ public class TCPClient extends AbstractClient {
             String sizeString = requestId + "::SIZE";
             sendRequest(out, in, sizeString);
             System.out.println("SIZE request");
-            ClientLogger.log("SIZE request");
+            logger.info("SIZE request");
         } catch (IOException e) {
             e.printStackTrace();
         }

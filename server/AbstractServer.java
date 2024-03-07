@@ -9,7 +9,6 @@ import java.net.Socket;
  */
 public abstract class AbstractServer implements IServer {
   private static final KeyValueStore keyValueStore = new KeyValueStore();
-  static final ServerLogger serverLogger = new ServerLogger();
 
   public String processRequest(String inputLine) {
     String[] tokens = inputLine.split("::");
@@ -51,10 +50,5 @@ public abstract class AbstractServer implements IServer {
       default:
         return requestId + ": Unsupported operation: " + operation;
     }
-  }
-
-  @Override
-  public void handleRequest(Socket clientSocket) throws IOException {
-    serverLogger.log("Unable to process request. Server handle request behavior undefined");
   }
 }

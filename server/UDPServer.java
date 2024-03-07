@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.Arrays;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
+import java.util.logging.Logger;
 
 /**
  * This represents a UDP server which receives datagram requests, validates them and sends responses
@@ -11,13 +12,18 @@ import java.util.zip.Checksum;
  * to handle key value requests.
  */
 public class UDPServer extends AbstractServer {
+
+  private Logger logger;
+  public UDPServer(Logger logger){
+    this.logger=logger;
+  }
   @Override
   public void listen(int portNumber) {
 
     // Server socket creation on specified port number.
     try (DatagramSocket aSocket = new DatagramSocket(portNumber)) {
       System.out.println("Server active on port " + portNumber);
-      serverLogger.log("Server active on port " + portNumber);
+      logger.info("Server active on port " + portNumber);
 
       while (true) {
         byte[] buffer = new byte[1000];
@@ -30,7 +36,7 @@ public class UDPServer extends AbstractServer {
         // Validating requests on server side.
         if (!validRequest(request)) {
           String response = "Couldn't process request.";
-          serverLogger.logMalformedRequest(request.getAddress(), request.getLength());
+          logger.warning(" - Received Malformed request from " + request.getAddress() + " of length " + request.getLength());
           DatagramPacket reply = new DatagramPacket(response.getBytes(),
             response.getBytes().length, request.getAddress(), request.getPort());
           aSocket.send(reply);
@@ -39,7 +45,7 @@ public class UDPServer extends AbstractServer {
 
         // parsing and processing request
         String msg = new String(request.getData(), 0, request.getLength());
-        serverLogger.logRequest(request.getAddress(), msg);
+        logger.info(" - Request from : " + request.getAddress() + ": "+msg);
 
         // process request from the key value store
         String response = processRequest(msg);
@@ -58,7 +64,7 @@ public class UDPServer extends AbstractServer {
                 DatagramPacket reply = new DatagramPacket(response.getBytes(),
                         response.getBytes().length, request.getAddress(), request.getPort());
                 aSocket.send(reply);
-                serverLogger.logResponse(reply.getAddress(),response);
+                logger.info(" - Response to : " + reply.getAddress() + ": " + response);
                 maxDataInPacket = new StringBuilder();
               }
           }
@@ -68,14 +74,14 @@ public class UDPServer extends AbstractServer {
           DatagramPacket reply = new DatagramPacket(response.getBytes(),
                   response.getBytes().length, request.getAddress(), request.getPort());
           aSocket.send(reply);
-          serverLogger.logResponse(reply.getAddress(),response);
+          logger.info(" - Response to : " + reply.getAddress() + ": " + response);
         }
         // rest all other requests
         else{
           DatagramPacket reply = new DatagramPacket(response.getBytes(),
                   response.getBytes().length, request.getAddress(), request.getPort());
           aSocket.send(reply);
-          serverLogger.logResponse(reply.getAddress(),response);
+          logger.info(" - Response to : " + reply.getAddress() + ": " + response);
         }
       }
     } catch (SocketException e) {
@@ -116,5 +122,10 @@ public class UDPServer extends AbstractServer {
 
     // compare checksums, if not equal means malformed request.
     return responseRequestId == generateChecksum(parts);
+  }
+
+    @Override
+  public void handleRequest(Socket clientSocket) throws IOException {
+    logger.warning("Unable to process request. Server handle request behavior undefined");
   }
 }

@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.UUID;
 
-public abstract class AbstractClient implements IClient {
+public abstract class AbstractClient{
   public String generateRequestFromUserChoice(BufferedReader userInput) throws IOException {
     System.out.println("Which operation do you want to use?");
     System.out.println("1. PUT");
@@ -79,4 +79,11 @@ public abstract class AbstractClient implements IClient {
     String requestId = UUID.randomUUID().toString();
     return requestId + "::" + "GETALL";
   }
+
+  /**
+   * Starts client process to send request to server on given port and IP address
+   * @param serverIp server's IP address to send request.
+   * @param portNum server's port number on which it listens to client requests.
+   */
+  abstract void startClient(String serverIp, int portNum);
 }
