@@ -12,10 +12,11 @@ public class ServerRMI {
     }
 
     public static void main(String[] args) {
+        int portNumber = 1099;
         try {
             KeyValueDataStore<String,String> dataStore = new KeyValueDataStore<>();
             DataStore<String,String> stub = (DataStore<String,String>) UnicastRemoteObject.exportObject(dataStore, 0);
-            Registry registry = LocateRegistry.createRegistry(2000);
+            Registry registry = LocateRegistry.createRegistry(portNumber);
             registry.rebind("KeyValueDataStore",stub);
 
             System.out.println("server ready");
