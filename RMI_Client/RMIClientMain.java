@@ -1,7 +1,6 @@
 package RMI_Client;
 
 import RMI_Server.DataStore;
-import client.TCPClientMain;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -21,6 +20,8 @@ public class RMIClientMain {
 
             FileHandler fileHandler = new FileHandler("clientRMI.log");
             fileHandler.setFormatter(new SimpleFormatter());
+            Logger parentLog= logger.getParent();
+            if (parentLog!=null&&parentLog.getHandlers().length>0) parentLog.removeHandler(parentLog.getHandlers()[0]);
             logger.addHandler(fileHandler);
 
             ClientRMI client = new ClientRMI(logger,ds);

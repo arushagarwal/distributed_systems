@@ -33,7 +33,7 @@ public class ServerTCP extends AbstractServer {
                 try {
                     handleClientRequest(clientSocket);
                 } finally {
-                    // log information when client closes connection
+                    // log incleformation when client closes connection
                     clientSocket.close();
                     System.out.println("Client disconnected");
                     logger.info("Client disconnected from IP address : " + clientSocket.getInetAddress());
