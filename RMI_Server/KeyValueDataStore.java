@@ -1,16 +1,18 @@
 package RMI_Server;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-class KeyValueDataStore<K,V> implements DataStore<K,V>{
+class KeyValueDataStore<K,V>  implements DataStore<K,V> {
     private final ConcurrentMap<K, V> store;
 
     /**
      * Initializing the key value data store.
      */
     public KeyValueDataStore() throws RemoteException {
+        super();
         this.store = new ConcurrentHashMap<>();
     }
 
