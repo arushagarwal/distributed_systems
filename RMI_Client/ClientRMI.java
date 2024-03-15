@@ -36,7 +36,7 @@ public class ClientRMI {
     }
 
     private void initialOperations(){
-        final int KEYS = 100;
+        final int KEYS = 1000;
         try {
             // initial 1000 put requests to populate key-value data store
             for (int i = 1; i <= KEYS; i++) {
@@ -123,7 +123,7 @@ public class ClientRMI {
                 System.out.println("bye bye");
                 System.exit(0);
             default:
-                System.out.println("Invalid choice. Please enter 1, 2, 3, 4, 5 or 6.");
+                System.out.println("Invalid choice. Please enter 1, 2, 3,or 4.");
         }
     }
 }
