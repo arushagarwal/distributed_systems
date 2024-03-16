@@ -19,7 +19,7 @@ public class ClientRMI {
 
     public void startClient(){
         initialOperations();
-        System.out.println("Initial operation logged in the log file with 100 puts, 100 gets and 5 deletes, currently, database has the data with keys from 6-100");
+        System.out.println("Initial operation logged in the log file with 1000 puts, 1000 gets and 15 deletes, currently, database has the data with keys from 6-100");
         try{
             while (true){
                 createMenu();

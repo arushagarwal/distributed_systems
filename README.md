@@ -9,42 +9,30 @@
 [//]: # (* Attach screenshots of your testing done on your local environment.)
 
 ## overview of the Project
-* In this project, we have made 2 different, servers and clients, one each for TCP and UDP.
-* Code for both the clients is in folder `client` and for the server, it is in folder `server`.
+* In this project, we have made RMI server and RMI client and leveraged RMI for RPC communication.
+* Code for the client is in folder `RMI_Client` and for the server, it is in folder `RMI_Server`.
 
 ### Project structure
 ```bash
 ├── README.md
-├── client
-│   ├── AbstractClient
-│   ├── ClientTCP
-│   ├── ClientUDP
-│   ├── TCPClientMain
-│   └── UDPClientMain
+├── RMI_Client
+│   ├── ClientRMI
+│   ├── RMiClientMain
 ├── distributed_systems.iml
-├── server
-│   ├── AbstractServer
+├── RMI_Server
+│   ├── DataStore
 │   ├── KeyValueDataStore
-│   ├── ServerTCP
-│   ├── ServerUDP
-│   ├── TCPServerMain
-│   └── UDPServerMain
-```
-* Compile the code using `javac server/*.java client/*.java`
-* For running the server : 
-  * UDP : `java server/TCPServerMain <udp-port-num>`
-  * TCP : `java server/TCPServerMain <tcp-port-num>`
-* For running the client :  
-  * TCP : `java client/TCPClientMain <host-name> <port-number>`
-  * UDP : `java client/UDPClientMain <host-name> <port-number>`
-* TCP client communicates with TCP server and UDP client communicates with UDP server
-* Logs for the server and client for both TCP and UDP are generated independently and automatically in the main folder.
-* Log file names : 
-  * UDP Client : `clientUDP.log`
-  * TCP Client : `clientTCP.log`
-  * UDP Server : `serverUDP.log`
-  * TCP Server : `serverTCP.log`
+│   ├── ServerRMI
 
+```
+* Compile the code using `javac RMI_Server/*.java RMI_Client/*.java`
+* For running the server : `java server/ServerRMI`
+* For running the client : `java client/RMIClientMain <port-number>` (port name for this application is 1099 since this
+what I mentioned for the server)
+* Logs for the client are generated independently and automatically in the main folder.
+* Log file names : 
+  * RMI Client : `clientRMI.log`
+* For the initial transactions of GET, PUT and DELETE, logs for these actions are mentioned in the log file.
   
 # OUTPUT and SCREENSHOTS
 
