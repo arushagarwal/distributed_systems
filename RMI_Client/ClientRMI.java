@@ -18,8 +18,15 @@ public class ClientRMI {
     }
 
     public void startClient(){
-        initialOperations();
-        System.out.println("Initial operation logged in the log file with 1000 puts, 1000 gets and 15 deletes, currently, database has the data with keys from 6-100");
+        System.out.println("Do you want to do pre-populate database and do initial operations? (y/n)");
+        String isInitialOperation = scan.nextLine();
+        if(isInitialOperation.equals("y") || isInitialOperation.equals("Y")){
+            initialOperations();
+            System.out.println("Initial operation logged in the log file with 1000 puts, 1000 gets and 15 deletes, currently, database has the data with keys from 16-1000");
+        }
+        else{
+            System.out.println("No initial operation done, you can continue...");
+        }
         try{
             while (true){
                 createMenu();
@@ -70,7 +77,6 @@ public class ClientRMI {
 
     private void createMenu() throws RemoteException{
         System.out.println("Which operation do you want to use?");
-        System.out.println("(Database is pre-populated with keys from 16-1000)");
         System.out.println("1. PUT");
         System.out.println("2. GET");
         System.out.println("3. DELETE");
